@@ -30,7 +30,7 @@ namespace QuanlyTrungtam
             }
             else
             {
-                BUTTON.Text = "Your Assignment";
+                BUTTON.Text = "Your Registering>";
                 Cur_UserID.Text = Signin.ID.ToString();
             }
 
@@ -132,7 +132,10 @@ namespace QuanlyTrungtam
             }
             else
             {
-
+                this.Hide();
+                Student_ManageClass temp = new Student_ManageClass();
+                temp.ShowDialog();
+                this.Close();
             }
         }
 
@@ -262,7 +265,45 @@ namespace QuanlyTrungtam
 
         private void AssignCourse_Click(object sender, EventArgs e)
         {
-
+            ListView.CheckedListViewItemCollection Items = Courses_View.CheckedItems;
+            if (Items.Count <= 0) MessageBox.Show("Select Course you wanna Register!!!");
+            else if (Items.Count > 1) MessageBox.Show("Select just 1 Course !!");
+            else
+            {
+                foreach(ListViewItem item in Items)
+                {
+                    string qry = "Insert into DonDangKi values (" + Signin.ID.ToString() + ", " + item.SubItems[0].Text
+                        + ", 0 , N'')";
+                    using(SqlConnection conn = new SqlConnection(ConnectionString.connect))
+                    {
+                        conn.Open();
+                        int check = 0;
+                        SqlCommand cmd = new SqlCommand(qry,conn);
+                        try
+                        {
+                            cmd.ExecuteNonQuery();
+                            check = 1;
+                        }
+                        catch (Exception exc)
+                        {
+                            MessageBox.Show("Error !!!" + exc);
+                        }
+                        if (check == 1)
+                        {
+                            MessageBoxButtons button = MessageBoxButtons.YesNo;
+                            DialogResult res = MessageBox.Show("Successful !!! Do you wanna go to your Registering now ?", "Succesful", button);
+                            if (res == DialogResult.Yes)
+                            {
+                                this.Hide();
+                                Student_ManageClass temp = new Student_ManageClass();
+                                temp.ShowDialog();
+                                this.Close();
+                            }
+                        }
+                        conn.Close();
+                    }
+                }
+            }
         }
 
         private void View_Details_Class_Click(object sender, EventArgs e)
@@ -273,11 +314,15 @@ namespace QuanlyTrungtam
                 string qry = "Select * from LopHoc A join NhanVien B ON ID_GV = ID_NV where A.ID_Khoa = " + CurCourse_ID.ToString();
                 SqlCommand cmd = new SqlCommand(qry, conn);
                 SqlDataReader reader = cmd.ExecuteReader();
+                string nametext = "";
+                string contacttext = "";
                 if (reader.Read())
                 {
-                    string text = " Giáo viên : " + reader["ID_GV"].ToString() + " - " + reader["Ten_NV"].ToString();
-                    text += "\n SĐT : " + reader["SDT"].ToString() + "\n Email : " + reader["Email"].ToString();
+                    nametext = " Giáo viên : " + reader["ID_GV"].ToString() + "   -      " + reader["Ten_NV"].ToString();
+                    contacttext += " SĐT : " + reader["SDT"].ToString() + " -    Email : " + reader["Email"].ToString();
                 }
+                Name_teacher.Text = nametext;
+                Contact_teacher.Text = contacttext;
                 conn.Close();
             }
         }

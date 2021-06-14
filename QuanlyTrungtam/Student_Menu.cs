@@ -32,5 +32,13 @@ namespace QuanlyTrungtam
             temp.ShowDialog();
             this.Close();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Student_ManageClass temp = new Student_ManageClass();
+            temp.ShowDialog();
+            this.Close();
+        }
     }
 }

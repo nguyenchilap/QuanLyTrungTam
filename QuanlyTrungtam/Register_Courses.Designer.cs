@@ -49,11 +49,12 @@ namespace QuanlyTrungtam
             this.label4 = new System.Windows.Forms.Label();
             this.Cur_UserID = new System.Windows.Forms.Label();
             this.BUTTON = new System.Windows.Forms.Button();
-            this.Detail_Text = new System.Windows.Forms.TextBox();
+            this.Name_teacher = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.View_Details_Class = new System.Windows.Forms.Button();
             this.IDCur_Course = new System.Windows.Forms.TextBox();
             this.NameCur_Course = new System.Windows.Forms.TextBox();
+            this.Contact_teacher = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // Courses_View
@@ -281,13 +282,12 @@ namespace QuanlyTrungtam
             this.BUTTON.UseVisualStyleBackColor = false;
             this.BUTTON.Click += new System.EventHandler(this.button3_Click);
             // 
-            // Detail_Text
+            // Name_teacher
             // 
-            this.Detail_Text.Location = new System.Drawing.Point(767, 432);
-            this.Detail_Text.Multiline = true;
-            this.Detail_Text.Name = "Detail_Text";
-            this.Detail_Text.Size = new System.Drawing.Size(316, 106);
-            this.Detail_Text.TabIndex = 83;
+            this.Name_teacher.Location = new System.Drawing.Point(767, 432);
+            this.Name_teacher.Name = "Name_teacher";
+            this.Name_teacher.Size = new System.Drawing.Size(316, 22);
+            this.Name_teacher.TabIndex = 83;
             // 
             // label6
             // 
@@ -330,17 +330,25 @@ namespace QuanlyTrungtam
             this.NameCur_Course.Size = new System.Drawing.Size(236, 22);
             this.NameCur_Course.TabIndex = 87;
             // 
+            // Contact_teacher
+            // 
+            this.Contact_teacher.Location = new System.Drawing.Point(767, 478);
+            this.Contact_teacher.Name = "Contact_teacher";
+            this.Contact_teacher.Size = new System.Drawing.Size(316, 22);
+            this.Contact_teacher.TabIndex = 88;
+            // 
             // Register_Courses
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MediumSlateBlue;
             this.ClientSize = new System.Drawing.Size(1104, 550);
+            this.Controls.Add(this.Contact_teacher);
             this.Controls.Add(this.NameCur_Course);
             this.Controls.Add(this.IDCur_Course);
             this.Controls.Add(this.View_Details_Class);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.Detail_Text);
+            this.Controls.Add(this.Name_teacher);
             this.Controls.Add(this.BUTTON);
             this.Controls.Add(this.Cur_UserID);
             this.Controls.Add(this.label4);
@@ -386,10 +394,11 @@ namespace QuanlyTrungtam
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label Cur_UserID;
         private System.Windows.Forms.Button BUTTON;
-        private System.Windows.Forms.TextBox Detail_Text;
+        private System.Windows.Forms.TextBox Name_teacher;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button View_Details_Class;
         private System.Windows.Forms.TextBox IDCur_Course;
         private System.Windows.Forms.TextBox NameCur_Course;
+        private System.Windows.Forms.TextBox Contact_teacher;
     }
 }
