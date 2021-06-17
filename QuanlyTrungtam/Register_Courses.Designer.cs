@@ -36,7 +36,6 @@ namespace QuanlyTrungtam
             this.Start_Course = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Num_Course = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Edu_Form = new System.Windows.Forms.ComboBox();
-            this.label10 = new System.Windows.Forms.Label();
             this.List_SubGr = new System.Windows.Forms.TreeView();
             this.button1 = new System.Windows.Forms.Button();
             this.Courses_Reload = new System.Windows.Forms.Button();
@@ -55,6 +54,7 @@ namespace QuanlyTrungtam
             this.IDCur_Course = new System.Windows.Forms.TextBox();
             this.NameCur_Course = new System.Windows.Forms.TextBox();
             this.Contact_teacher = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // Courses_View
@@ -118,16 +118,6 @@ namespace QuanlyTrungtam
             this.Edu_Form.Size = new System.Drawing.Size(335, 24);
             this.Edu_Form.TabIndex = 57;
             this.Edu_Form.SelectedIndexChanged += new System.EventHandler(this.Edu_Form_SelectedIndexChanged);
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("VNI-Bandit", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(20, 23);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(226, 30);
-            this.label10.TabIndex = 58;
-            this.label10.Text = "Danh sach khoa hoc";
             // 
             // List_SubGr
             // 
@@ -229,41 +219,41 @@ namespace QuanlyTrungtam
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(44, 408);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(74, 411);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(89, 20);
+            this.label2.Size = new System.Drawing.Size(76, 17);
             this.label2.TabIndex = 78;
             this.label2.Text = "QUY TẮC";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(44, 441);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(74, 441);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(108, 20);
+            this.label3.Size = new System.Drawing.Size(89, 17);
             this.label3.TabIndex = 79;
             this.label3.Text = "KHÓA HỌC";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(764, 23);
+            this.label4.Location = new System.Drawing.Point(764, 11);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(92, 17);
+            this.label4.Size = new System.Drawing.Size(68, 17);
             this.label4.TabIndex = 80;
-            this.label4.Text = "ID Học viên : ";
+            this.label4.Text = "Học phí : ";
             // 
             // Cur_UserID
             // 
             this.Cur_UserID.AutoSize = true;
-            this.Cur_UserID.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Cur_UserID.Location = new System.Drawing.Point(850, 28);
+            this.Cur_UserID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Cur_UserID.Location = new System.Drawing.Point(762, 32);
             this.Cur_UserID.Name = "Cur_UserID";
-            this.Cur_UserID.Size = new System.Drawing.Size(58, 29);
+            this.Cur_UserID.Size = new System.Drawing.Size(159, 25);
             this.Cur_UserID.TabIndex = 81;
-            this.Cur_UserID.Text = "000";
+            this.Cur_UserID.Text = "              0 VND";
             // 
             // BUTTON
             // 
@@ -284,7 +274,7 @@ namespace QuanlyTrungtam
             // 
             // Name_teacher
             // 
-            this.Name_teacher.Location = new System.Drawing.Point(767, 432);
+            this.Name_teacher.Location = new System.Drawing.Point(767, 441);
             this.Name_teacher.Name = "Name_teacher";
             this.Name_teacher.Size = new System.Drawing.Size(316, 22);
             this.Name_teacher.TabIndex = 83;
@@ -307,7 +297,7 @@ namespace QuanlyTrungtam
             this.View_Details_Class.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.View_Details_Class.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.View_Details_Class.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.View_Details_Class.Location = new System.Drawing.Point(993, 383);
+            this.View_Details_Class.Location = new System.Drawing.Point(993, 388);
             this.View_Details_Class.Name = "View_Details_Class";
             this.View_Details_Class.Size = new System.Drawing.Size(90, 37);
             this.View_Details_Class.TabIndex = 85;
@@ -332,10 +322,20 @@ namespace QuanlyTrungtam
             // 
             // Contact_teacher
             // 
-            this.Contact_teacher.Location = new System.Drawing.Point(767, 478);
+            this.Contact_teacher.Location = new System.Drawing.Point(767, 503);
             this.Contact_teacher.Name = "Contact_teacher";
             this.Contact_teacher.Size = new System.Drawing.Size(316, 22);
             this.Contact_teacher.TabIndex = 88;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("UVN Tin Tuc Hep", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(19, 22);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(213, 35);
+            this.label10.TabIndex = 89;
+            this.label10.Text = "DANH SÁCH KHÓA HỌC";
             // 
             // Register_Courses
             // 
@@ -343,6 +343,7 @@ namespace QuanlyTrungtam
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MediumSlateBlue;
             this.ClientSize = new System.Drawing.Size(1104, 550);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.Contact_teacher);
             this.Controls.Add(this.NameCur_Course);
             this.Controls.Add(this.IDCur_Course);
@@ -361,7 +362,6 @@ namespace QuanlyTrungtam
             this.Controls.Add(this.button1);
             this.Controls.Add(this.Courses_Reload);
             this.Controls.Add(this.List_SubGr);
-            this.Controls.Add(this.label10);
             this.Controls.Add(this.Edu_Form);
             this.Controls.Add(this.Courses_View);
             this.Name = "Register_Courses";
@@ -381,7 +381,6 @@ namespace QuanlyTrungtam
         private System.Windows.Forms.ColumnHeader Start_Course;
         private System.Windows.Forms.ColumnHeader Num_Course;
         private System.Windows.Forms.ComboBox Edu_Form;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TreeView List_SubGr;
         private System.Windows.Forms.Button Courses_Reload;
         private System.Windows.Forms.Button button1;
@@ -400,5 +399,6 @@ namespace QuanlyTrungtam
         private System.Windows.Forms.TextBox IDCur_Course;
         private System.Windows.Forms.TextBox NameCur_Course;
         private System.Windows.Forms.TextBox Contact_teacher;
+        private System.Windows.Forms.Label label10;
     }
 }

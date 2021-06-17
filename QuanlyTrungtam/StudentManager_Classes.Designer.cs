@@ -34,7 +34,6 @@ namespace QuanlyTrungtam
             this.Course_Name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Course_Start = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Course_Type = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.label10 = new System.Windows.Forms.Label();
             this.Edu_Form = new System.Windows.Forms.ComboBox();
             this.StudentView = new System.Windows.Forms.ListView();
             this.Student_ID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -52,6 +51,8 @@ namespace QuanlyTrungtam
             this.label9 = new System.Windows.Forms.Label();
             this.YearFilter = new System.Windows.Forms.ComboBox();
             this.Courses_Reload = new System.Windows.Forms.Button();
+            this.Back_button = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // Courses_View
@@ -97,16 +98,6 @@ namespace QuanlyTrungtam
             this.Course_Type.Text = "Loại Hình Đào Tạo";
             this.Course_Type.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.Course_Type.Width = 148;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("VNI-Bandit", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(25, 16);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(110, 30);
-            this.label10.TabIndex = 33;
-            this.label10.Text = "KHOA HOC";
             // 
             // Edu_Form
             // 
@@ -327,12 +318,41 @@ namespace QuanlyTrungtam
             this.Courses_Reload.UseVisualStyleBackColor = false;
             this.Courses_Reload.Click += new System.EventHandler(this.Courses_Reload_Click);
             // 
+            // Back_button
+            // 
+            this.Back_button.BackColor = System.Drawing.Color.Brown;
+            this.Back_button.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Back_button.FlatAppearance.BorderColor = System.Drawing.Color.Maroon;
+            this.Back_button.FlatAppearance.BorderSize = 3;
+            this.Back_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Back_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Back_button.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.Back_button.Location = new System.Drawing.Point(29, 521);
+            this.Back_button.Name = "Back_button";
+            this.Back_button.Size = new System.Drawing.Size(126, 44);
+            this.Back_button.TabIndex = 71;
+            this.Back_button.Text = "< Back to Menu";
+            this.Back_button.UseVisualStyleBackColor = false;
+            this.Back_button.Click += new System.EventHandler(this.Back_button_Click);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("UVN Tin Tuc Hep", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(25, 11);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(106, 35);
+            this.label10.TabIndex = 72;
+            this.label10.Text = "KHÓA HỌC";
+            // 
             // StudentManager_Classes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.LightBlue;
+            this.BackColor = System.Drawing.Color.SteelBlue;
             this.ClientSize = new System.Drawing.Size(1308, 577);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.Back_button);
             this.Controls.Add(this.Courses_Reload);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.FilterMonth);
@@ -347,7 +367,6 @@ namespace QuanlyTrungtam
             this.Controls.Add(this.ViewClassList);
             this.Controls.Add(this.StudentView);
             this.Controls.Add(this.Edu_Form);
-            this.Controls.Add(this.label10);
             this.Controls.Add(this.Courses_View);
             this.Name = "StudentManager_Classes";
             this.Text = "Classes";
@@ -362,7 +381,6 @@ namespace QuanlyTrungtam
         private System.Windows.Forms.ColumnHeader Course_ID;
         private System.Windows.Forms.ColumnHeader Course_Name;
         private System.Windows.Forms.ColumnHeader Course_Start;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox Edu_Form;
         private System.Windows.Forms.ListView StudentView;
         private System.Windows.Forms.ColumnHeader Student_ID;
@@ -381,5 +399,7 @@ namespace QuanlyTrungtam
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox YearFilter;
         private System.Windows.Forms.Button Courses_Reload;
+        private System.Windows.Forms.Button Back_button;
+        private System.Windows.Forms.Label label10;
     }
 }

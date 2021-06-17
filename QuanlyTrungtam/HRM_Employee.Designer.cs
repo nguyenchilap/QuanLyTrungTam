@@ -39,7 +39,6 @@ namespace QuanlyTrungtam
             this.BeginDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.EndDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Department_State = new System.Windows.Forms.ComboBox();
-            this.title = new System.Windows.Forms.Label();
             this.Name_input = new System.Windows.Forms.TextBox();
             this.Name_text = new System.Windows.Forms.Label();
             this.email_input = new System.Windows.Forms.TextBox();
@@ -66,6 +65,7 @@ namespace QuanlyTrungtam
             this.Signout = new System.Windows.Forms.Button();
             this.GrantManage = new System.Windows.Forms.Button();
             this.LeaveWork = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Salary_input)).BeginInit();
             this.SuspendLayout();
             // 
@@ -149,16 +149,6 @@ namespace QuanlyTrungtam
             this.Department_State.Size = new System.Drawing.Size(388, 24);
             this.Department_State.TabIndex = 58;
             this.Department_State.SelectedIndexChanged += new System.EventHandler(this.Department_State_SelectedIndexChanged);
-            // 
-            // title
-            // 
-            this.title.AutoSize = true;
-            this.title.Font = new System.Drawing.Font("VNI-Bandit", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.title.Location = new System.Drawing.Point(12, 9);
-            this.title.Name = "title";
-            this.title.Size = new System.Drawing.Size(235, 30);
-            this.title.TabIndex = 59;
-            this.title.Text = "Danh sach nhan vien";
             // 
             // Name_input
             // 
@@ -446,12 +436,23 @@ namespace QuanlyTrungtam
             this.LeaveWork.UseVisualStyleBackColor = false;
             this.LeaveWork.Click += new System.EventHandler(this.LeaveWork_Click);
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("UVN Tin Tuc Hep", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(12, 9);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(218, 35);
+            this.label10.TabIndex = 87;
+            this.label10.Text = "DANH SÁCH NHÂN VIÊN";
+            // 
             // HRM_Employee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(1251, 597);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.LeaveWork);
             this.Controls.Add(this.GrantManage);
             this.Controls.Add(this.Signout);
@@ -478,7 +479,6 @@ namespace QuanlyTrungtam
             this.Controls.Add(this.email_input);
             this.Controls.Add(this.Name_text);
             this.Controls.Add(this.Name_input);
-            this.Controls.Add(this.title);
             this.Controls.Add(this.Department_State);
             this.Controls.Add(this.EmployeeView);
             this.Name = "HRM_Employee";
@@ -497,7 +497,6 @@ namespace QuanlyTrungtam
         private System.Windows.Forms.ColumnHeader Name_NV;
         private System.Windows.Forms.ColumnHeader Salary_NV;
         private System.Windows.Forms.ComboBox Department_State;
-        private System.Windows.Forms.Label title;
         private System.Windows.Forms.TextBox Name_input;
         private System.Windows.Forms.Label Name_text;
         private System.Windows.Forms.TextBox email_input;
@@ -529,5 +528,6 @@ namespace QuanlyTrungtam
         private System.Windows.Forms.Button Signout;
         private System.Windows.Forms.Button GrantManage;
         private System.Windows.Forms.Button LeaveWork;
+        private System.Windows.Forms.Label label10;
     }
 }

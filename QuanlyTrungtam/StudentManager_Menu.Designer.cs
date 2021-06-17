@@ -1,7 +1,7 @@
 ﻿
 namespace QuanlyTrungtam
 {
-    partial class Student_Menu
+    partial class StudentManager_Menu
     {
         /// <summary>
         /// Required designer variable.
@@ -45,10 +45,10 @@ namespace QuanlyTrungtam
             this.groupBox1.Controls.Add(this.button4);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(33, 26);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(264, 482);
-            this.groupBox1.TabIndex = 19;
+            this.groupBox1.TabIndex = 20;
             this.groupBox1.TabStop = false;
             // 
             // button2
@@ -63,7 +63,7 @@ namespace QuanlyTrungtam
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(164, 61);
             this.button2.TabIndex = 22;
-            this.button2.Text = "MANAGE STUDYING";
+            this.button2.Text = "Manage Classes";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -81,6 +81,7 @@ namespace QuanlyTrungtam
             this.button3.TabIndex = 21;
             this.button3.Text = "MANAGE ACCOUNT";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
             // 
@@ -110,7 +111,7 @@ namespace QuanlyTrungtam
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(164, 61);
             this.button1.TabIndex = 18;
-            this.button1.Text = "REGISTER";
+            this.button1.Text = "Student\'s Registation";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -125,14 +126,14 @@ namespace QuanlyTrungtam
             this.label2.TabIndex = 5;
             this.label2.Text = "MENU";
             // 
-            // Student_Menu
+            // StudentManager_Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DimGray;
-            this.ClientSize = new System.Drawing.Size(327, 533);
+            this.ClientSize = new System.Drawing.Size(301, 510);
             this.Controls.Add(this.groupBox1);
-            this.Name = "Student_Menu";
+            this.Name = "StudentManager_Menu";
             this.Text = "Menu";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -143,10 +144,10 @@ namespace QuanlyTrungtam
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button2;
     }
 }

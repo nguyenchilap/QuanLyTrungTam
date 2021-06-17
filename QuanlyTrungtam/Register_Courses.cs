@@ -24,6 +24,8 @@ namespace QuanlyTrungtam
         {
             if (Signin.ID == 0)
             {
+                label4.Hide();
+                Cur_UserID.Hide();
                 Back.Text = "Exit";
                 AssignCourse.BackColor = Color.Gray;
                 AssignCourse.FlatAppearance.BorderColor = Color.DimGray;
@@ -31,7 +33,6 @@ namespace QuanlyTrungtam
             else
             {
                 BUTTON.Text = "Your Registering>";
-                Cur_UserID.Text = Signin.ID.ToString();
             }
 
             Edu_Form.Text = "Loại hình đào tạo";
@@ -62,7 +63,7 @@ namespace QuanlyTrungtam
         }
         private void LoadCoursesListView()
         {
-
+            Rule_Text.Text = "";
             Courses_View.Items.Clear();
             using (SqlConnection conn = new SqlConnection(ConnectionString.connect))
             {
@@ -190,23 +191,74 @@ namespace QuanlyTrungtam
                     using (SqlConnection conn = new SqlConnection(ConnectionString.connect))
                     {
                         conn.Open();
-                        string qry1 = "Select mh.Ten_Monhoc from KhoaDaoTao kh join LopHoc lh ON kh.ID_Khoa = lh.ID_Khoa" +
-                                                                    " join DS_Monhoc mh ON mh.ID_Monhoc = lh.ID_Monhoc " +
-                                                                    " where kh.ID_Khoa = " + item.SubItems[0].Text;
+                        string qry1 = "";
+                        if (check == 0) //Hoc phan
+                            qry1 = "Select C.Ten_Hocphan as Ten from Chungchi_Hocphan A join LoaiHinhDaoTao B ON A.ID_Loai = B.ID_Loai " +
+                                                                        "join DS_HocPhan C ON C.ID_Hocphan = A.ID_Hocphan" +
+                                " where B.Ten_Loai = N'" + item.SubItems[2].Text + "'";
+                        if (check == 1) //Nhanh hoc
+                            qry1 = "Select C.Ten_Nhanh as Ten from Chungchi_Nhanhhoc A join LoaiHinhDaoTao B ON A.ID_Loai = B.ID_Loai " +
+                                                                        "join DS_Nhanhhoc C ON C.ID_Nhanh = A.ID_Nhanh" +
+                                " where B.Ten_Loai = N'" + item.SubItems[2].Text + "'";
+                        if (check == 2) //Nhom chuyen de
+                            qry1 = "Select D.Ten_Monhoc as Ten from LopChuyende A join LoaiHinhDaoTao B ON A.ID_Loai = B.ID_Loai " +
+                                                                        "join Chitiet_NhomCD C ON C.ID_Nhom = A.ID_Nhom " +
+                                                                        "join DS_MonHoc D ON D.ID_Monhoc = C.ID_Chuyende " +
+                                " where B.Ten_Loai = N'" + item.SubItems[2].Text + "'";
+                        if (check == 3) //Monhoc
+                            qry1 = "Select C.Ten_Monhoc as Ten from Chungchi_Monhoc A join LoaiHinhDaoTao B ON A.ID_Loai = B.ID_Loai " +
+                                                                        "join DS_MonHoc C ON C.ID_Monhoc = A.ID_Monhoc" +
+                                " where B.Ten_Loai = N'" + item.SubItems[2].Text + "'";
                         SqlCommand cmd1 = new SqlCommand(qry1, conn);
 
+                        //MessageBox.Show(check.ToString());
+                        //MessageBox.Show(qry1);
                         var watch1 = System.Diagnostics.Stopwatch.StartNew();
                         SqlDataReader reader1 = cmd1.ExecuteReader();
 
                         while (reader1.Read())
                         {
-                            List_SubGr.Nodes[check].Nodes.Add(reader1["Ten_Monhoc"].ToString());
+                            List_SubGr.Nodes[check].Nodes.Add(reader1["Ten"].ToString());
                         }
 
                         List_SubGr.Nodes[check].ExpandAll();
                         watch1.Stop();
                         conn.Close();
                     }
+                    int count = 0;
+                    if (check == 0 || check == 1)
+                    {
+                        while (count <= (List_SubGr.Nodes[check].GetNodeCount(false) - 1))
+                        {
+                            using (SqlConnection conn = new SqlConnection(ConnectionString.connect))
+                            {
+                                conn.Open();
+                                string qry1 = "";
+                                if (check == 0)
+                                    qry1 = "Select C.Ten_Monhoc as Ten from Chitiet_Hocphan A join DS_HocPhan B on A.ID_Hocphan = B.ID_Hocphan " +
+                                                                             "join DS_MonHoc C on C.ID_Monhoc = A.ID_Monhoc " +
+                                                                             "where B.Ten_Hocphan = N'" + List_SubGr.Nodes[check].Nodes[count].Text + "'";
+                                if (check == 1)
+                                    qry1 = "Select C.Ten_Monhoc as Ten from Chitiet_Nhanhhoc A join DS_NhanhHoc B on A.ID_Nhanh = B.ID_Nhanh " +
+                                                                             "join DS_MonHoc C on C.ID_Monhoc = A.ID_Monhoc " +
+                                                                             "where B.Ten_Nhanh = N'" + List_SubGr.Nodes[check].Nodes[count].Text + "'";
+                                SqlCommand cmd1 = new SqlCommand(qry1, conn);
+                                SqlDataReader reader1 = cmd1.ExecuteReader();
+
+                                while (reader1.Read())
+                                {
+                                    List_SubGr.Nodes[check].Nodes[count].Nodes.Add(reader1["Ten"].ToString());
+                                }
+
+                                List_SubGr.Nodes[check].Nodes[count].ExpandAll();
+
+                                count++;
+                                conn.Close();
+                            }
+                        }
+                    }
+
+
                     CurCourse_ID = Int32.Parse(item.SubItems[0].Text);
                     CurCourse_Name = item.SubItems[1].Text;
                     IDCur_Course.Text = CurCourse_ID.ToString();
@@ -262,45 +314,75 @@ namespace QuanlyTrungtam
                 }
             }
         }
-
+        
+        private int NodeLevel(TreeNode node)
+        {
+            int level = 0;
+            while ((node = node.Parent) != null) level++;
+            return level;
+        }
         private void AssignCourse_Click(object sender, EventArgs e)
         {
-            ListView.CheckedListViewItemCollection Items = Courses_View.CheckedItems;
-            if (Items.Count <= 0) MessageBox.Show("Select Course you wanna Register!!!");
-            else if (Items.Count > 1) MessageBox.Show("Select just 1 Course !!");
+            if (AssignCourse.BackColor == Color.Gray)
+            {
+                MessageBoxButtons button = MessageBoxButtons.YesNo;
+                DialogResult res = MessageBox.Show("Sign in first !! Redirect to Sign in screen ?", "Register", button);
+                if (res == DialogResult.Yes)
+                {
+                    this.Hide();
+                    Signin temp = new Signin();
+                    temp.ShowDialog();
+                    this.Close();
+                }
+            }
             else
             {
-                foreach(ListViewItem item in Items)
+                ListView.CheckedListViewItemCollection Items = Courses_View.CheckedItems;
+                if (Items.Count <= 0) MessageBox.Show("Select Course you wanna Register!!!");
+                else if (Items.Count > 1) MessageBox.Show("Select just 1 Course !!");
+                else
                 {
-                    string qry = "Insert into DonDangKi values (" + Signin.ID.ToString() + ", " + item.SubItems[0].Text
-                        + ", 0 , N'')";
-                    using(SqlConnection conn = new SqlConnection(ConnectionString.connect))
+                    int check_Nhanhhoc = 0;
+                    foreach (ListViewItem item in Items)
                     {
-                        conn.Open();
-                        int check = 0;
-                        SqlCommand cmd = new SqlCommand(qry,conn);
-                        try
+                        using (SqlConnection conn = new SqlConnection(ConnectionString.connect))
                         {
-                            cmd.ExecuteNonQuery();
-                            check = 1;
-                        }
-                        catch (Exception exc)
-                        {
-                            MessageBox.Show("Error !!!" + exc);
-                        }
-                        if (check == 1)
-                        {
-                            MessageBoxButtons button = MessageBoxButtons.YesNo;
-                            DialogResult res = MessageBox.Show("Successful !!! Do you wanna go to your Registering now ?", "Succesful", button);
-                            if (res == DialogResult.Yes)
+                            conn.Open();
+                            string qry1 = "Select A.LoaiHinhDaoTao from KhoaDaoTao A join Chungchi_Nhanhhoc B ON A.LoaiHinhDaoTao = B.ID_Loai where " +
+                                                                                " A.ID_Khoa = " + item.SubItems[0].Text;
+                            SqlCommand cmd1 = new SqlCommand(qry1, conn);
+                            SqlDataReader reader = cmd1.ExecuteReader();
+
+                            if (reader.Read())
                             {
-                                this.Hide();
-                                Student_ManageClass temp = new Student_ManageClass();
-                                temp.ShowDialog();
-                                this.Close();
+                                check_Nhanhhoc = 1;
+                            }
+                            conn.Close();
+                        }
+                        string qry = "Insert into DonDangKi values (" + Signin.ID.ToString() + ", " + item.SubItems[0].Text
+                            + ", 0 , N'')";
+                        if (check_Nhanhhoc == 1)
+                        {
+                            if (List_SubGr.SelectedNode == null)
+                                MessageBox.Show(" Please Select 1 item !!");
+                            else if (List_SubGr.SelectedNode.Level != 1)
+                            {
+                                MessageBox.Show(" Please Select Branch of Learning !!!");
+                            }
+                            else
+                            {
+                                qry += "\n Insert into Dangky_Nhanhhoc values ("
+                                    + "(Select ID_Loai from LoaiHinhDaoTao where Ten_Loai = N'" + item.SubItems[2].Text + "')"
+                                    + ", (Select ID_Nhanh from DS_NhanhHoc where Ten_Nhanh = N'" + List_SubGr.SelectedNode.Text + "')"
+                                    + ", " + Signin.ID.ToString() + ", " + item.SubItems[0].Text + ")";
+                                MessageBox.Show(qry);
+                                Program.ExecCmd(qry);
                             }
                         }
-                        conn.Close();
+                        else
+                        {
+                            Program.ExecCmd(qry);
+                        }
                     }
                 }
             }
@@ -308,6 +390,7 @@ namespace QuanlyTrungtam
 
         private void View_Details_Class_Click(object sender, EventArgs e)
         {
+            //MessageBox.Show(List_SubGr.SelectedNode.Level.ToString());
             using(SqlConnection conn = new SqlConnection(ConnectionString.connect))
             {
                 conn.Open();

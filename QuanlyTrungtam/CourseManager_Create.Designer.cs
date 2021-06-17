@@ -31,6 +31,7 @@ namespace QuanlyTrungtam
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.title = new System.Windows.Forms.Label();
             this.Back = new System.Windows.Forms.Button();
             this.Name_Cur = new System.Windows.Forms.Label();
             this.ID_Cur = new System.Windows.Forms.Label();
@@ -74,9 +75,10 @@ namespace QuanlyTrungtam
             this.label3 = new System.Windows.Forms.Label();
             this.SubjectName_text = new System.Windows.Forms.TextBox();
             this.Drop_button = new System.Windows.Forms.Button();
-            this.title = new System.Windows.Forms.Label();
             this.add_button = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.FilterMonth = new System.Windows.Forms.ComboBox();
             this.ID_Course_Detail = new System.Windows.Forms.Label();
@@ -108,7 +110,6 @@ namespace QuanlyTrungtam
             this.label11 = new System.Windows.Forms.Label();
             this.Course_Name_text = new System.Windows.Forms.TextBox();
             this.Manage_Form_button = new System.Windows.Forms.Button();
-            this.label10 = new System.Windows.Forms.Label();
             this.Courses_Reload = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -133,6 +134,7 @@ namespace QuanlyTrungtam
             // 
             this.tabPage1.BackColor = System.Drawing.Color.LightBlue;
             this.tabPage1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.tabPage1.Controls.Add(this.title);
             this.tabPage1.Controls.Add(this.Back);
             this.tabPage1.Controls.Add(this.Name_Cur);
             this.tabPage1.Controls.Add(this.ID_Cur);
@@ -166,7 +168,6 @@ namespace QuanlyTrungtam
             this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.Controls.Add(this.SubjectName_text);
             this.tabPage1.Controls.Add(this.Drop_button);
-            this.tabPage1.Controls.Add(this.title);
             this.tabPage1.Controls.Add(this.add_button);
             this.tabPage1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPage1.Location = new System.Drawing.Point(4, 39);
@@ -176,6 +177,16 @@ namespace QuanlyTrungtam
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Subjects";
             this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
+            // 
+            // title
+            // 
+            this.title.AutoSize = true;
+            this.title.Font = new System.Drawing.Font("UVN Tin Tuc Hep", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.title.Location = new System.Drawing.Point(20, 11);
+            this.title.Name = "title";
+            this.title.Size = new System.Drawing.Size(207, 35);
+            this.title.TabIndex = 73;
+            this.title.Text = "DANH SÁCH MÔN HỌC";
             // 
             // Back
             // 
@@ -664,16 +675,6 @@ namespace QuanlyTrungtam
             this.Drop_button.UseVisualStyleBackColor = false;
             this.Drop_button.Click += new System.EventHandler(this.Drop_button_Click);
             // 
-            // title
-            // 
-            this.title.AutoSize = true;
-            this.title.Font = new System.Drawing.Font("VNI-Bandit", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.title.Location = new System.Drawing.Point(20, 13);
-            this.title.Name = "title";
-            this.title.Size = new System.Drawing.Size(107, 30);
-            this.title.TabIndex = 4;
-            this.title.Text = "SUBJECTS";
-            // 
             // add_button
             // 
             this.add_button.BackColor = System.Drawing.Color.DarkSlateBlue;
@@ -694,6 +695,8 @@ namespace QuanlyTrungtam
             // 
             this.tabPage2.BackColor = System.Drawing.Color.LightBlue;
             this.tabPage2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.tabPage2.Controls.Add(this.label17);
+            this.tabPage2.Controls.Add(this.label10);
             this.tabPage2.Controls.Add(this.label15);
             this.tabPage2.Controls.Add(this.FilterMonth);
             this.tabPage2.Controls.Add(this.ID_Course_Detail);
@@ -716,7 +719,6 @@ namespace QuanlyTrungtam
             this.tabPage2.Controls.Add(this.label11);
             this.tabPage2.Controls.Add(this.Course_Name_text);
             this.tabPage2.Controls.Add(this.Manage_Form_button);
-            this.tabPage2.Controls.Add(this.label10);
             this.tabPage2.Controls.Add(this.Courses_Reload);
             this.tabPage2.Location = new System.Drawing.Point(4, 39);
             this.tabPage2.Name = "tabPage2";
@@ -724,6 +726,26 @@ namespace QuanlyTrungtam
             this.tabPage2.Size = new System.Drawing.Size(1303, 502);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Courses";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("UVN Tin Tuc Hep", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(942, 15);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(287, 35);
+            this.label17.TabIndex = 75;
+            this.label17.Text = "DANH SÁCH SINH VIÊN ĐĂNG KÍ";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("UVN Tin Tuc Hep", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(20, 18);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(213, 35);
+            this.label10.TabIndex = 74;
+            this.label10.Text = "DANH SÁCH KHÓA HỌC";
             // 
             // label15
             // 
@@ -843,9 +865,8 @@ namespace QuanlyTrungtam
             this.label8.Font = new System.Drawing.Font("VNI-Bandit", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(936, 18);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(312, 30);
+            this.label8.Size = new System.Drawing.Size(0, 30);
             this.label8.TabIndex = 57;
-            this.label8.Text = "Danh sach sinh vien dang ki";
             // 
             // Course_Details_View
             // 
@@ -1091,16 +1112,6 @@ namespace QuanlyTrungtam
             this.Manage_Form_button.UseVisualStyleBackColor = false;
             this.Manage_Form_button.Click += new System.EventHandler(this.Manage_Form_button_Click);
             // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("VNI-Bandit", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(21, 17);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(226, 30);
-            this.label10.TabIndex = 6;
-            this.label10.Text = "Danh sach khoa hoc";
-            // 
             // Courses_Reload
             // 
             this.Courses_Reload.BackColor = System.Drawing.Color.AliceBlue;
@@ -1143,7 +1154,6 @@ namespace QuanlyTrungtam
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.Label title;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
@@ -1160,7 +1170,6 @@ namespace QuanlyTrungtam
         private System.Windows.Forms.TextBox Course_Name_text;
         private System.Windows.Forms.Button Courses_Reload;
         private System.Windows.Forms.Button Manage_Form_button;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.NumericUpDown Course_MaxMem_text;
@@ -1221,5 +1230,8 @@ namespace QuanlyTrungtam
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.ComboBox FilterMonth;
+        private System.Windows.Forms.Label title;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label10;
     }
 }

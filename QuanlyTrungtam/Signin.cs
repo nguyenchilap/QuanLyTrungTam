@@ -155,7 +155,7 @@ namespace QuanlyTrungtam
                             }
                             if (Int32.Parse(checkDN.ToString()) == 4)
                             {
-                                StudentManager_Classes temp = new StudentManager_Classes();
+                                StudentManager_Menu temp = new StudentManager_Menu();
                                 temp.ShowDialog();
                             }
 

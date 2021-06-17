@@ -32,7 +32,6 @@ namespace QuanlyTrungtam
             this.LHDT_View = new System.Windows.Forms.ListView();
             this.ID_Form = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Name_Form = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.label1 = new System.Windows.Forms.Label();
             this.Back = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -52,6 +51,7 @@ namespace QuanlyTrungtam
             this.Drop_Component = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.ID_Selected = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // LHDT_View
@@ -83,18 +83,6 @@ namespace QuanlyTrungtam
             this.Name_Form.Text = "Tên Loại hình đào tạo";
             this.Name_Form.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.Name_Form.Width = 257;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("VNI-Jamai", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(20, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(206, 34);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Loai hinh dao tao";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // Back
             // 
@@ -319,12 +307,23 @@ namespace QuanlyTrungtam
             this.ID_Selected.TabIndex = 50;
             this.ID_Selected.Text = "000";
             // 
-            // Admin_Edu_Form
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("UVN Tin Tuc Hep", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(20, 21);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(187, 35);
+            this.label10.TabIndex = 75;
+            this.label10.Text = "LOẠI HÌNH ĐÀO TẠO";
+            // 
+            // CourseManager_Edu_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(941, 552);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.ID_Selected);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.Drop_Component);
@@ -336,14 +335,13 @@ namespace QuanlyTrungtam
             this.Controls.Add(this.Name_text);
             this.Controls.Add(this.details_view);
             this.Controls.Add(this.Rule_text);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.LHDT_View);
             this.Controls.Add(this.Submit);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.List_GroupSub);
             this.Controls.Add(this.Back);
-            this.Name = "Admin_Edu_Form";
+            this.Name = "CourseManager_Edu_Form";
             this.Text = "Education Form";
             this.Load += new System.EventHandler(this.Admin_Courses_Load);
             this.ResumeLayout(false);
@@ -356,7 +354,6 @@ namespace QuanlyTrungtam
         private System.Windows.Forms.ListView LHDT_View;
         private System.Windows.Forms.ColumnHeader ID_Form;
         private System.Windows.Forms.ColumnHeader Name_Form;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button Back;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
@@ -376,5 +373,6 @@ namespace QuanlyTrungtam
         private System.Windows.Forms.Button Drop_Component;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label ID_Selected;
+        private System.Windows.Forms.Label label10;
     }
 }

@@ -489,7 +489,7 @@ namespace QuanlyTrungtam
                 Group.Items.Add("Danh sách học phần");
                 Group.Items.Add("Các nhánh học");
                 Group.SelectedIndex = 0;
-                title.Text = "Danh sach mon hoc";
+                title.Text = "DANH SÁCH MÔN HỌC";
                 type_sub = 0;
                 LoadSubject();
             }    
@@ -498,7 +498,7 @@ namespace QuanlyTrungtam
                 Group.Items.Clear();
                 Group.Items.Add("Các nhóm chuyên đề");
                 Group.SelectedIndex = 0;
-                title.Text = "danh sach chuyen de";
+                title.Text = "DANH SÁCH CHUYÊN ĐỀ";
                 type_sub = 1;
                 LoadSubject();
             }    
