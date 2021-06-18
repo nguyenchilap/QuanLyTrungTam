@@ -66,7 +66,7 @@ namespace QuanlyTrungtam
                     item.SubItems.Add(reader["Ten_Hocvien"].ToString());
                     item.SubItems.Add(reader["Ten_Khoa"].ToString());
                     item.SubItems.Add(reader["Hocphi"].ToString());
-                    if (reader[""])
+                    
                 }
 
                 conn.Close();

@@ -24,8 +24,8 @@ namespace QuanlyTrungtam
         {
             if (Signin.ID == 0)
             {
-                label4.Hide();
-                Cur_UserID.Hide();
+                //label4.Hide();
+                //Cur_Course_Fee.Hide();
                 Back.Text = "Exit";
                 AssignCourse.BackColor = Color.Gray;
                 AssignCourse.FlatAppearance.BorderColor = Color.DimGray;
@@ -118,7 +118,7 @@ namespace QuanlyTrungtam
             List_SubGr.BeginUpdate();
             List_SubGr.Nodes.Add("HocPhan", "Học phần");
             List_SubGr.Nodes.Add("NhanhHoc", "Nhánh học");
-            List_SubGr.Nodes.Add("NhomChuyende", "Nhóm Chuyên đề");
+            List_SubGr.Nodes.Add("Chuyende", "Chuyên đề");
             List_SubGr.Nodes.Add("MonHoc", "Môn học");
             List_SubGr.EndUpdate();
         }
@@ -147,6 +147,28 @@ namespace QuanlyTrungtam
             Rule_Text.Text = "";
         }
 
+        private void Load_Hocphi(int ID_Khoahoc)
+        {
+            using (SqlConnection conn = new SqlConnection(ConnectionString.connect))
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("KhoaHoc_Hocphi",conn);
+                cmd.Parameters.AddWithValue("@idKhoa",ID_Khoahoc);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    Cur_Course_Fee.Text = reader["Hocphi"].ToString() + " VND";
+                }
+                else
+                {
+                    Cur_Course_Fee.Text = "Optional";
+                }
+                conn.Close();
+            }
+        }
         private void button1_Click(object sender, EventArgs e)
         {
             List_SubGr.Nodes.Clear();
@@ -158,6 +180,8 @@ namespace QuanlyTrungtam
             {
                 foreach (ListViewItem item in Items)
                 {
+                    Load_Hocphi(Int32.Parse(item.SubItems[0].Text));
+
                     var qry = new List<string>();
                     int check = -1;
 
@@ -200,7 +224,7 @@ namespace QuanlyTrungtam
                             qry1 = "Select C.Ten_Nhanh as Ten from Chungchi_Nhanhhoc A join LoaiHinhDaoTao B ON A.ID_Loai = B.ID_Loai " +
                                                                         "join DS_Nhanhhoc C ON C.ID_Nhanh = A.ID_Nhanh" +
                                 " where B.Ten_Loai = N'" + item.SubItems[2].Text + "'";
-                        if (check == 2) //Nhom chuyen de
+                        if (check == 2) //chuyen de
                             qry1 = "Select D.Ten_Monhoc as Ten from LopChuyende A join LoaiHinhDaoTao B ON A.ID_Loai = B.ID_Loai " +
                                                                         "join Chitiet_NhomCD C ON C.ID_Nhom = A.ID_Nhom " +
                                                                         "join DS_MonHoc D ON D.ID_Monhoc = C.ID_Chuyende " +
@@ -390,23 +414,69 @@ namespace QuanlyTrungtam
 
         private void View_Details_Class_Click(object sender, EventArgs e)
         {
+            Name_teacher.Text = "";
+            Contact_teacher.Text = "";
             //MessageBox.Show(List_SubGr.SelectedNode.Level.ToString());
-            using(SqlConnection conn = new SqlConnection(ConnectionString.connect))
+            if (List_SubGr.SelectedNode.Level == 2 || List_SubGr.SelectedNode.Parent.Name == "MonHoc" || List_SubGr.SelectedNode.Parent.Name == "Chuyende")
             {
-                conn.Open();
-                string qry = "Select * from LopHoc A join NhanVien B ON ID_GV = ID_NV where A.ID_Khoa = " + CurCourse_ID.ToString();
-                SqlCommand cmd = new SqlCommand(qry, conn);
-                SqlDataReader reader = cmd.ExecuteReader();
-                string nametext = "";
-                string contacttext = "";
-                if (reader.Read())
+                using (SqlConnection conn = new SqlConnection(ConnectionString.connect))
                 {
-                    nametext = " Giáo viên : " + reader["ID_GV"].ToString() + "   -      " + reader["Ten_NV"].ToString();
-                    contacttext += " SĐT : " + reader["SDT"].ToString() + " -    Email : " + reader["Email"].ToString();
+                    conn.Open();
+                    string qry = "Select *, C.Hocphi as HP from LopHoc A join NhanVien B ON ID_GV = ID_NV " +
+                        "join DS_MonHoc C ON C.ID_Monhoc = A.ID_Monhoc where A.ID_Khoa = " + CurCourse_ID.ToString();
+                    SqlCommand cmd = new SqlCommand(qry, conn);
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    string nametext = "";
+                    string contacttext = "";
+              
+                    if (reader.Read())
+                    {
+                        nametext = " Giáo viên : " + reader["ID_GV"].ToString() + "   -      " + reader["Ten_NV"].ToString();
+                        contacttext += " SĐT : " + reader["SDT"].ToString() + " -    Email : " + reader["Email"].ToString();
+                     
+                    }
+                    Name_teacher.Text = nametext;
+                    Contact_teacher.Text = contacttext;
+              
+                    conn.Close();
                 }
-                Name_teacher.Text = nametext;
-                Contact_teacher.Text = contacttext;
-                conn.Close();
+                using (SqlConnection conn = new SqlConnection(ConnectionString.connect))
+                {
+                    conn.Open();
+                    string qry = "Select Hocphi from DS_Monhoc where Ten_MonHoc = N'" + List_SubGr.SelectedNode.Text + "'";
+                    SqlCommand cmd = new SqlCommand(qry, conn);
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    if (reader.Read())
+                    {
+                        Tuition_Fee.Text = "Học phí : " + reader["Hocphi"].ToString() + " VND";
+                    }
+                    conn.Close();
+                }
+            }
+            else if (List_SubGr.SelectedNode.Level == 1)
+            {
+                string qry = "";
+                if (List_SubGr.SelectedNode.Parent.Name == "HocPhan")
+                    qry = "Select Hocphi from DS_HocPhan where Ten_Hocphan = N'" + List_SubGr.SelectedNode.Text + "'";
+                if (List_SubGr.SelectedNode.Parent.Name == "NhanhHoc")
+                    qry = "Select Hocphi from DS_NhanhHoc where Ten_Nhanh = N'" + List_SubGr.SelectedNode.Text + "'";
+                if (List_SubGr.SelectedNode.Parent.Name == "Chuyende")
+                    qry = "Select Hocphi from DS_MonHoc where Ten_Monhoc = N'" + List_SubGr.SelectedNode.Text + "'";
+                if (List_SubGr.SelectedNode.Parent.Name == "MonHoc")
+                    qry = "Select Hocphi from DS_MonHoc where Ten_Monhoc = N'" + List_SubGr.SelectedNode.Text + "'";
+                using (SqlConnection conn = new SqlConnection(ConnectionString.connect))
+                {
+                    conn.Open();
+                    string hcphitext = "";
+                    SqlCommand cmd = new SqlCommand(qry, conn);
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    if (reader.Read())
+                    {
+                        hcphitext = "Học phí : " + reader["Hocphi"].ToString() + " VND";
+                    }
+                    Tuition_Fee.Text = hcphitext;
+                    conn.Close();
+                }
             }
         }
 

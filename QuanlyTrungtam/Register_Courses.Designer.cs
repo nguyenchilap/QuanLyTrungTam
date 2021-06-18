@@ -46,7 +46,7 @@ namespace QuanlyTrungtam
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.Cur_UserID = new System.Windows.Forms.Label();
+            this.Cur_Course_Fee = new System.Windows.Forms.Label();
             this.BUTTON = new System.Windows.Forms.Button();
             this.Name_teacher = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -55,6 +55,7 @@ namespace QuanlyTrungtam
             this.NameCur_Course = new System.Windows.Forms.TextBox();
             this.Contact_teacher = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
+            this.Tuition_Fee = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // Courses_View
@@ -245,15 +246,15 @@ namespace QuanlyTrungtam
             this.label4.TabIndex = 80;
             this.label4.Text = "Học phí : ";
             // 
-            // Cur_UserID
+            // Cur_Course_Fee
             // 
-            this.Cur_UserID.AutoSize = true;
-            this.Cur_UserID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Cur_UserID.Location = new System.Drawing.Point(762, 32);
-            this.Cur_UserID.Name = "Cur_UserID";
-            this.Cur_UserID.Size = new System.Drawing.Size(159, 25);
-            this.Cur_UserID.TabIndex = 81;
-            this.Cur_UserID.Text = "              0 VND";
+            this.Cur_Course_Fee.AutoSize = true;
+            this.Cur_Course_Fee.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Cur_Course_Fee.Location = new System.Drawing.Point(762, 32);
+            this.Cur_Course_Fee.Name = "Cur_Course_Fee";
+            this.Cur_Course_Fee.Size = new System.Drawing.Size(135, 25);
+            this.Cur_Course_Fee.TabIndex = 81;
+            this.Cur_Course_Fee.Text = "          0 VND";
             // 
             // BUTTON
             // 
@@ -274,7 +275,7 @@ namespace QuanlyTrungtam
             // 
             // Name_teacher
             // 
-            this.Name_teacher.Location = new System.Drawing.Point(767, 441);
+            this.Name_teacher.Location = new System.Drawing.Point(767, 438);
             this.Name_teacher.Name = "Name_teacher";
             this.Name_teacher.Size = new System.Drawing.Size(316, 22);
             this.Name_teacher.TabIndex = 83;
@@ -322,7 +323,7 @@ namespace QuanlyTrungtam
             // 
             // Contact_teacher
             // 
-            this.Contact_teacher.Location = new System.Drawing.Point(767, 503);
+            this.Contact_teacher.Location = new System.Drawing.Point(767, 477);
             this.Contact_teacher.Name = "Contact_teacher";
             this.Contact_teacher.Size = new System.Drawing.Size(316, 22);
             this.Contact_teacher.TabIndex = 88;
@@ -337,12 +338,20 @@ namespace QuanlyTrungtam
             this.label10.TabIndex = 89;
             this.label10.Text = "DANH SÁCH KHÓA HỌC";
             // 
+            // Tuition_Fee
+            // 
+            this.Tuition_Fee.Location = new System.Drawing.Point(767, 516);
+            this.Tuition_Fee.Name = "Tuition_Fee";
+            this.Tuition_Fee.Size = new System.Drawing.Size(316, 22);
+            this.Tuition_Fee.TabIndex = 90;
+            // 
             // Register_Courses
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MediumSlateBlue;
             this.ClientSize = new System.Drawing.Size(1104, 550);
+            this.Controls.Add(this.Tuition_Fee);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.Contact_teacher);
             this.Controls.Add(this.NameCur_Course);
@@ -351,7 +360,7 @@ namespace QuanlyTrungtam
             this.Controls.Add(this.label6);
             this.Controls.Add(this.Name_teacher);
             this.Controls.Add(this.BUTTON);
-            this.Controls.Add(this.Cur_UserID);
+            this.Controls.Add(this.Cur_Course_Fee);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -391,7 +400,7 @@ namespace QuanlyTrungtam
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label Cur_UserID;
+        private System.Windows.Forms.Label Cur_Course_Fee;
         private System.Windows.Forms.Button BUTTON;
         private System.Windows.Forms.TextBox Name_teacher;
         private System.Windows.Forms.Label label6;
@@ -400,5 +409,6 @@ namespace QuanlyTrungtam
         private System.Windows.Forms.TextBox NameCur_Course;
         private System.Windows.Forms.TextBox Contact_teacher;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox Tuition_Fee;
     }
 }
