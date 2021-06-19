@@ -40,34 +40,6 @@ namespace QuanlyTrungtam
             }
         }
 
-        private int ID_KhoaHoc(string Ten_Khoa)
-        {
-            int res = 0;
-            using (SqlConnection conn = new SqlConnection(ConnectionString.connect))
-            {
-                conn.Open();
-                string qry = "Select ID_Khoa from KhoaDaoTao Where Ten_Khoa = N'" + Ten_Khoa + "'";
-                SqlCommand cmd = new SqlCommand(qry, conn);
-                SqlDataReader reader = cmd.ExecuteReader();
-                if (reader.Read())
-                {
-                    res = Int32.Parse(reader["ID_Khoa"].ToString());
-                }
-                conn.Close();
-            }
-            return res;
-        }
-        private string HocPhi_KhoaHoc(string Ten_Khoa)
-        {
-            string res = "";
-            using (SqlConnection conn = new SqlConnection(ConnectionString.connect))
-            {
-                conn.Open();
-                
-                conn.Close();
-            }
-            return res;
-        }
 
         private void LoadCoursesListView(int Year, int Month)
         {

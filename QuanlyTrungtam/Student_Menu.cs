@@ -40,5 +40,13 @@ namespace QuanlyTrungtam
             temp.ShowDialog();
             this.Close();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ManageAccount temp = new ManageAccount();
+            temp.ShowDialog();
+            this.Close();
+        }
     }
 }

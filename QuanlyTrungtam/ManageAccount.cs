@@ -115,5 +115,31 @@ namespace QuanlyTrungtam
                 }
             }
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            if (Signin.check_Menu == 0)
+            {
+                Student_Menu temp = new Student_Menu();
+                temp.ShowDialog();
+            }
+            if (Signin.check_Menu == 1)
+            {
+                CourseManager_Menu temp = new CourseManager_Menu();
+                temp.ShowDialog();
+            }
+            if (Signin.check_Menu == 2)
+            {
+                HRM_Employee temp = new HRM_Employee();
+                temp.ShowDialog();
+            }
+            if (Signin.check_Menu == 4)
+            {
+                StudentManager_Menu temp = new StudentManager_Menu();
+                temp.ShowDialog();
+            }
+            this.Close();
+        }
     }
 }

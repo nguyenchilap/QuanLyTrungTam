@@ -16,7 +16,7 @@ namespace QuanlyTrungtam
         public static int ID = 0, Type_Person = 0;
         public static string Name_person, Email;
         public static bool IsManager = false;
-        
+        public static int check_Menu = 0;
         public Signin()
         {
             InitializeComponent();
@@ -158,7 +158,7 @@ namespace QuanlyTrungtam
                                 StudentManager_Menu temp = new StudentManager_Menu();
                                 temp.ShowDialog();
                             }
-
+                            check_Menu = Int32.Parse(checkDN.ToString());
                         }
                         else
                         {
