@@ -75,7 +75,7 @@ namespace QuanlyTrungtam
             List_SubGr.BeginUpdate();
             List_SubGr.Nodes.Add("HocPhan", "Học phần");
             List_SubGr.Nodes.Add("NhanhHoc", "Nhánh học");
-            List_SubGr.Nodes.Add("NhomChuyende", "Nhóm Chuyên đề");
+            List_SubGr.Nodes.Add("Chuyende", "Chuyên đề");
             List_SubGr.Nodes.Add("MonHoc", "Môn học");
             List_SubGr.EndUpdate();
         }
@@ -132,7 +132,7 @@ namespace QuanlyTrungtam
                             qry1 = "Select C.Ten_Nhanh as Ten from Chungchi_Nhanhhoc A join LoaiHinhDaoTao B ON A.ID_Loai = B.ID_Loai " +
                                                                         "join DS_Nhanhhoc C ON C.ID_Nhanh = A.ID_Nhanh" +
                                 " where B.Ten_Loai = N'" + item.SubItems[2].Text + "'";
-                        if (check == 2) //Nhom chuyen de
+                        if (check == 2) //chuyen de
                             qry1 = "Select D.Ten_Monhoc as Ten from LopChuyende A join LoaiHinhDaoTao B ON A.ID_Loai = B.ID_Loai " +
                                                                         "join Chitiet_NhomCD C ON C.ID_Nhom = A.ID_Nhom " +
                                                                         "join DS_MonHoc D ON D.ID_Monhoc = C.ID_Chuyende " +
@@ -214,6 +214,10 @@ namespace QuanlyTrungtam
         private void Student_ManageClass_Load(object sender, EventArgs e)
         {
             Edu_Form.Text = "Loại hình đào tạo";
+
+            Thilai.Hide();
+            Thilai_title.Hide();
+
             Edu_Form_LoadIndex();
             LoadCoursesListView();
             Init_ListSubGr();
@@ -224,9 +228,46 @@ namespace QuanlyTrungtam
             LoadCoursesListView();
         }
 
+        private void ResetInfo()
+        {
+            Name_CurClass.Text = "_______________________";
+            Name_CurTeacher.Text = "__________________";
+            SobuoiVang.Text = "00";
+            Contact_CurTeacher.Text = "___________________";
+            DiemThi.Text = "000";
+            Thilai.Hide();
+            Thilai_title.Hide();
+        }
         private void Detail_button_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(List_SubGr.SelectedNode.Text)) MessageBox.Show("Select Class you wanna see!!!");
+            else
+            {
+                if (List_SubGr.SelectedNode.Level == 2 || List_SubGr.SelectedNode.Parent.Name == "MonHoc" || List_SubGr.SelectedNode.Parent.Name == "Chuyende")
+                {
+                    using (SqlConnection conn = new SqlConnection(ConnectionString.connect))
+                    {
+                        conn.Open();
+                        string qry = " Select * from LopHoc A join DSLopHoc B ON A.ID_Khoa = B.ID_Khoa and A.ID_Monhoc = B.ID_Monhoc "
+                                                            + "join NhanVien C ON C.ID_NV = A.ID_GV join DS_Monhoc D ON D.ID_Monhoc = A.ID_Monhoc "
+                                             + " where A.ID_Khoa = " + IDCur_Course.Text + " and D.Ten_Monhoc = N'" + List_SubGr.SelectedNode.Text + "' "
+                                             + " and B.ID_Hocvien = " + Signin.ID;
+                        MessageBox.Show(qry);
+                        SqlCommand cmd = new SqlCommand(qry, conn);
+                        SqlDataReader reader = cmd.ExecuteReader();
+                        while (reader.Read())
+                        {
+                            Name_CurClass.Text = reader["Ten_Monhoc"].ToString();
+                            SobuoiVang.Text = reader["Sobuoivang"].ToString();
+                            Name_CurTeacher.Text = reader["Ten_NV"].ToString();
+                            Contact_CurTeacher.Text = reader["SDT"].ToString() + " / " + reader["Email"].ToString();
+                            DiemThi.Text = reader["Diemthi"].ToString();
+                        }
 
+                        conn.Close();
+                    }
+                }
+            }
         }
     }
 }

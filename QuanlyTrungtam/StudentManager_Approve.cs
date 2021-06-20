@@ -39,6 +39,7 @@ namespace QuanlyTrungtam
             //Edu_Form.Text = "Tất cả";
             Month_Filter.Text = DateTime.Now.Month.ToString();
             Year_Filter.Text = DateTime.Now.Year.ToString();
+            CheckPaid.Text = "Tất cả";
 
             Load_DonDangki();
             Load_Khoahoc();
@@ -114,9 +115,14 @@ namespace QuanlyTrungtam
                                                                          "join KhoaDaoTao C ON A.ID_Khoa = C.ID_Khoa " +
                                                                          "join LoaiHinhDaoTao D ON D.ID_Loai = C.LoaiHinhDaoTao ";
                 qry += " where Year(C.NgayBatdau) = " + Year_Filter.Text + " and Month(C.NgayBatdau) = " + Month_Filter.Text;
+                qry += " and NOT EXISTS (Select * from DangKi DK where DK.ID_Hocvien = A.ID_Hocvien and DK.ID_Khoa = A.ID_Khoa)";
                 if (Edu_Form.Text != "Tất cả" && !string.IsNullOrEmpty(Edu_Form.Text))
                     qry += " and D.Ten_Loai = N'" + Edu_Form.Text + "'";
-
+                if (CheckPaid.Text != "Tất cả")
+                {
+                    if (CheckPaid.Text == "Đã đóng") qry += " and A.Hocphi = 1";
+                    if (CheckPaid.Text == "Chưa đóng") qry += " and A.Hocphi = 0";
+                }
                 //MessageBox.Show(qry);
 
                 SqlCommand cmd = new SqlCommand(qry, conn);
@@ -148,6 +154,9 @@ namespace QuanlyTrungtam
                 conn.Open();
                 string qry = "Select * from KhoaDaoTao where ID_Khoa > 0";
                 qry += " and Year(NgayBatdau) = " + Year_Filter.Text + " and Month(NgayBatdau) = " + Month_Filter.Text;
+                if (Edu_Form.Text != "Tất cả" && !string.IsNullOrEmpty(Edu_Form.Text))
+                    qry += " and LoaiHinhDaoTao = (Select ID_Loai from LoaiHinhDaoTao where Ten_Loai = N'" + Edu_Form.Text + "')";
+                //MessageBox.Show(qry);
                 SqlCommand cmd = new SqlCommand(qry, conn);
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
@@ -179,6 +188,10 @@ namespace QuanlyTrungtam
             Load_Khoahoc();
             Load_DonDangki();
             Edu_Form_LoadIndex();
+            Student_Email.Text = "________________";
+            Student_ID.Text = "000";
+            Student_Name.Text = "_________________";
+            Student_SDT.Text = "________________";
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -220,6 +233,86 @@ namespace QuanlyTrungtam
         {
                 Load_DonDangki();
                 Load_Khoahoc();
+        }
+
+        private void ViewClassList_Click(object sender, EventArgs e)
+        {
+            ListView.CheckedListViewItemCollection Items = DonDK_View.CheckedItems;
+            if (Items.Count > 1) MessageBox.Show("Select just 1 Student!!");
+            else if (Items.Count <= 0) MessageBox.Show("Select Student you wanna View!!");
+            else
+            {
+                using (SqlConnection conn = new SqlConnection(ConnectionString.connect))
+                {
+                    conn.Open();
+                    string qry = "Select * from HocVien where ID_Hocvien = " + Items[0].SubItems[0].Text;
+                    SqlCommand cmd = new SqlCommand(qry, conn);
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    if (reader.Read())
+                    {
+                        Student_ID.Text = reader["ID_Hocvien"].ToString();
+                        Student_Name.Text = reader["Ten_Hocvien"].ToString();
+                        Student_SDT.Text = reader["SDT"].ToString();
+                        Student_Email.Text = reader["Email"].ToString();
+                    }
+                    conn.Close();
+                }
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            ListView.CheckedListViewItemCollection Items = DonDK_View.CheckedItems;
+            if (Items.Count <= 0) MessageBox.Show("Select Student you wanna Approve!!");
+            else
+            {
+                DialogResult res = MessageBox.Show("Are you sure to approve these students ?", "Approve", MessageBoxButtons.YesNo);
+                if (res == DialogResult.Yes)
+                {
+                    foreach(ListViewItem item in Items)
+                    {
+                        if (item.SubItems[4].Text == "Chưa đóng")
+                        {
+                            MessageBox.Show("Student haven't paid tuition fee yet !!!!");
+                        }
+                        else
+                        {
+                            string qry = "Insert into DangKi values(" + ID_KhoaHoc(item.SubItems[2].Text) + ", "
+                                + item.SubItems[0].Text + ", N'Chưa tốt nghiệp', " + Signin.ID.ToString() + ")";
+                            Program.ExecCmd(qry);
+                        }
+                    }
+                }
+                Load_DonDangki();
+            }
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            ListView.CheckedListViewItemCollection Items = DonDK_View.CheckedItems;
+            if (Items.Count <= 0) MessageBox.Show("Select Student you wanna View!!");
+            else
+            {
+                foreach(ListViewItem item in Items)
+                {
+                    using(SqlConnection conn = new SqlConnection(ConnectionString.connect))
+                    {
+                        conn.Open();
+                        string qry = "Update DonDangKi Set Hocphi = 1 where ID_Hocvien = " + item.SubItems[0].Text
+                            + " and ID_Khoa = " + ID_KhoaHoc(item.SubItems[2].Text);
+                        Program.ExecCmd(qry);
+                        conn.Close();
+                    }
+                }
+                Load_DonDangki();
+            }
+        }
+
+        private void CheckPaid_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Load_DonDangki();
         }
     }
 }

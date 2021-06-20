@@ -103,6 +103,7 @@ namespace QuanlyTrungtam
                         conn.Close();
                         if (check == true)
                         {
+                            MessageBox.Show("Sign up success !!");
                             this.Hide();
                             Signin temp = new Signin();
                             temp.ShowDialog();

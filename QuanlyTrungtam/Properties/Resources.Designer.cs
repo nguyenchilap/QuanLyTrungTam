@@ -73,6 +73,16 @@ namespace QuanlyTrungtam.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _20_201823_circle_icons_arrow_down_down_arrow_flat_icon {
+            get {
+                object obj = ResourceManager.GetObject("20-201823_circle-icons-arrow-down-down-arrow-flat-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _2705_check_mark_button_512 {
             get {
                 object obj = ResourceManager.GetObject("2705-check-mark-button-512", resourceCulture);

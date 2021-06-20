@@ -202,5 +202,8 @@
   <ItemGroup>
     <None Include="Resources\button_previous_01.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\20-201823_circle-icons-arrow-down-down-arrow-flat-icon.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

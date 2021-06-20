@@ -366,46 +366,50 @@ namespace QuanlyTrungtam
                 else if (Items.Count > 1) MessageBox.Show("Select just 1 Course !!");
                 else
                 {
-                    int check_Nhanhhoc = 0;
-                    foreach (ListViewItem item in Items)
+                    DialogResult res = MessageBox.Show("Are you sure to Register this Course ?!", "Registering", MessageBoxButtons.YesNo);
+                    if (res == DialogResult.Yes)
                     {
-                        using (SqlConnection conn = new SqlConnection(ConnectionString.connect))
+                        int check_Nhanhhoc = 0;
+                        foreach (ListViewItem item in Items)
                         {
-                            conn.Open();
-                            string qry1 = "Select A.LoaiHinhDaoTao from KhoaDaoTao A join Chungchi_Nhanhhoc B ON A.LoaiHinhDaoTao = B.ID_Loai where " +
-                                                                                " A.ID_Khoa = " + item.SubItems[0].Text;
-                            SqlCommand cmd1 = new SqlCommand(qry1, conn);
-                            SqlDataReader reader = cmd1.ExecuteReader();
+                            using (SqlConnection conn = new SqlConnection(ConnectionString.connect))
+                            {
+                                conn.Open();
+                                string qry1 = "Select A.LoaiHinhDaoTao from KhoaDaoTao A join Chungchi_Nhanhhoc B ON A.LoaiHinhDaoTao = B.ID_Loai where " +
+                                                                                    " A.ID_Khoa = " + item.SubItems[0].Text;
+                                SqlCommand cmd1 = new SqlCommand(qry1, conn);
+                                SqlDataReader reader = cmd1.ExecuteReader();
 
-                            if (reader.Read())
-                            {
-                                check_Nhanhhoc = 1;
+                                if (reader.Read())
+                                {
+                                    check_Nhanhhoc = 1;
+                                }
+                                conn.Close();
                             }
-                            conn.Close();
-                        }
-                        string qry = "Insert into DonDangKi values (" + Signin.ID.ToString() + ", " + item.SubItems[0].Text
-                            + ", 0 , N'')";
-                        if (check_Nhanhhoc == 1)
-                        {
-                            if (List_SubGr.SelectedNode == null)
-                                MessageBox.Show(" Please Select 1 item !!");
-                            else if (List_SubGr.SelectedNode.Level != 1)
+                            string qry = "Insert into DonDangKi values (" + Signin.ID.ToString() + ", " + item.SubItems[0].Text
+                                + ", 0 , N'')";
+                            if (check_Nhanhhoc == 1)
                             {
-                                MessageBox.Show(" Please Select Branch of Learning !!!");
+                                if (List_SubGr.SelectedNode == null)
+                                    MessageBox.Show(" Please Select 1 item !!");
+                                else if (List_SubGr.SelectedNode.Level != 1)
+                                {
+                                    MessageBox.Show(" Please Select Branch of Learning !!!");
+                                }
+                                else
+                                {
+                                    qry += "\n Insert into Dangky_Nhanhhoc values ("
+                                        + "(Select ID_Loai from LoaiHinhDaoTao where Ten_Loai = N'" + item.SubItems[2].Text + "')"
+                                        + ", (Select ID_Nhanh from DS_NhanhHoc where Ten_Nhanh = N'" + List_SubGr.SelectedNode.Text + "')"
+                                        + ", " + Signin.ID.ToString() + ", " + item.SubItems[0].Text + ")";
+                                    MessageBox.Show(qry);
+                                    Program.ExecCmd(qry);
+                                }
                             }
                             else
                             {
-                                qry += "\n Insert into Dangky_Nhanhhoc values ("
-                                    + "(Select ID_Loai from LoaiHinhDaoTao where Ten_Loai = N'" + item.SubItems[2].Text + "')"
-                                    + ", (Select ID_Nhanh from DS_NhanhHoc where Ten_Nhanh = N'" + List_SubGr.SelectedNode.Text + "')"
-                                    + ", " + Signin.ID.ToString() + ", " + item.SubItems[0].Text + ")";
-                                MessageBox.Show(qry);
                                 Program.ExecCmd(qry);
                             }
-                        }
-                        else
-                        {
-                            Program.ExecCmd(qry);
                         }
                     }
                 }
