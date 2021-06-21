@@ -45,20 +45,21 @@ namespace QuanlyTrungtam
             this.IDCur_Course = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.Thilai = new System.Windows.Forms.Label();
+            this.Thilai_title = new System.Windows.Forms.Label();
+            this.DiemThi_Title = new System.Windows.Forms.Label();
+            this.DiemThi = new System.Windows.Forms.Label();
             this.Contact_CurTeacher = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.Name_CurTeacher = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.SobuoiVang = new System.Windows.Forms.Label();
+            this.text = new System.Windows.Forms.Label();
             this.Name_CurClass = new System.Windows.Forms.Label();
             this.NameCur_Course = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.DiemThi = new System.Windows.Forms.Label();
-            this.DiemThi_Title = new System.Windows.Forms.Label();
-            this.Thilai_title = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.Thilai = new System.Windows.Forms.Label();
+            this.comp = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -189,6 +190,7 @@ namespace QuanlyTrungtam
             this.Courses_Reload.Size = new System.Drawing.Size(32, 31);
             this.Courses_Reload.TabIndex = 86;
             this.Courses_Reload.UseVisualStyleBackColor = false;
+            this.Courses_Reload.Click += new System.EventHandler(this.Courses_Reload_Click);
             // 
             // List_SubGr
             // 
@@ -230,6 +232,7 @@ namespace QuanlyTrungtam
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.comp);
             this.groupBox1.Controls.Add(this.Thilai);
             this.groupBox1.Controls.Add(this.Thilai_title);
             this.groupBox1.Controls.Add(this.DiemThi_Title);
@@ -238,8 +241,8 @@ namespace QuanlyTrungtam
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.Name_CurTeacher);
             this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.SobuoiVang);
+            this.groupBox1.Controls.Add(this.text);
             this.groupBox1.Controls.Add(this.Name_CurClass);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -250,6 +253,45 @@ namespace QuanlyTrungtam
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Class Informations";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // Thilai
+            // 
+            this.Thilai.AutoSize = true;
+            this.Thilai.Location = new System.Drawing.Point(800, 89);
+            this.Thilai.Name = "Thilai";
+            this.Thilai.Size = new System.Drawing.Size(26, 18);
+            this.Thilai.TabIndex = 102;
+            this.Thilai.Text = "00";
+            // 
+            // Thilai_title
+            // 
+            this.Thilai_title.AutoSize = true;
+            this.Thilai_title.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Thilai_title.Location = new System.Drawing.Point(709, 89);
+            this.Thilai_title.Name = "Thilai_title";
+            this.Thilai_title.Size = new System.Drawing.Size(93, 17);
+            this.Thilai_title.TabIndex = 101;
+            this.Thilai_title.Text = "Số lần thi lại :";
+            // 
+            // DiemThi_Title
+            // 
+            this.DiemThi_Title.AutoSize = true;
+            this.DiemThi_Title.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DiemThi_Title.Location = new System.Drawing.Point(709, 27);
+            this.DiemThi_Title.Name = "DiemThi_Title";
+            this.DiemThi_Title.Size = new System.Drawing.Size(67, 17);
+            this.DiemThi_Title.TabIndex = 95;
+            this.DiemThi_Title.Text = "Điểm thi :";
+            // 
+            // DiemThi
+            // 
+            this.DiemThi.AutoSize = true;
+            this.DiemThi.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DiemThi.Location = new System.Drawing.Point(768, 44);
+            this.DiemThi.Name = "DiemThi";
+            this.DiemThi.Size = new System.Drawing.Size(58, 29);
+            this.DiemThi.TabIndex = 95;
+            this.DiemThi.Text = "000";
             // 
             // Contact_CurTeacher
             // 
@@ -289,24 +331,24 @@ namespace QuanlyTrungtam
             this.label7.TabIndex = 97;
             this.label7.Text = "Giảng viên : ";
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(157, 88);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(26, 18);
-            this.label6.TabIndex = 96;
-            this.label6.Text = "00";
-            // 
             // SobuoiVang
             // 
             this.SobuoiVang.AutoSize = true;
-            this.SobuoiVang.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SobuoiVang.Location = new System.Drawing.Point(48, 87);
+            this.SobuoiVang.Location = new System.Drawing.Point(157, 88);
             this.SobuoiVang.Name = "SobuoiVang";
-            this.SobuoiVang.Size = new System.Drawing.Size(103, 17);
-            this.SobuoiVang.TabIndex = 95;
-            this.SobuoiVang.Text = "Số buổi vắng : ";
+            this.SobuoiVang.Size = new System.Drawing.Size(26, 18);
+            this.SobuoiVang.TabIndex = 96;
+            this.SobuoiVang.Text = "00";
+            // 
+            // text
+            // 
+            this.text.AutoSize = true;
+            this.text.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.text.Location = new System.Drawing.Point(48, 87);
+            this.text.Name = "text";
+            this.text.Size = new System.Drawing.Size(103, 17);
+            this.text.TabIndex = 95;
+            this.text.Text = "Số buổi vắng : ";
             // 
             // Name_CurClass
             // 
@@ -335,36 +377,6 @@ namespace QuanlyTrungtam
             this.label10.TabIndex = 94;
             this.label10.Text = "CÁC KHÓA HỌC CỦA BẠN";
             // 
-            // DiemThi
-            // 
-            this.DiemThi.AutoSize = true;
-            this.DiemThi.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DiemThi.Location = new System.Drawing.Point(768, 44);
-            this.DiemThi.Name = "DiemThi";
-            this.DiemThi.Size = new System.Drawing.Size(58, 29);
-            this.DiemThi.TabIndex = 95;
-            this.DiemThi.Text = "000";
-            // 
-            // DiemThi_Title
-            // 
-            this.DiemThi_Title.AutoSize = true;
-            this.DiemThi_Title.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DiemThi_Title.Location = new System.Drawing.Point(709, 27);
-            this.DiemThi_Title.Name = "DiemThi_Title";
-            this.DiemThi_Title.Size = new System.Drawing.Size(67, 17);
-            this.DiemThi_Title.TabIndex = 95;
-            this.DiemThi_Title.Text = "Điểm thi :";
-            // 
-            // Thilai_title
-            // 
-            this.Thilai_title.AutoSize = true;
-            this.Thilai_title.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Thilai_title.Location = new System.Drawing.Point(709, 89);
-            this.Thilai_title.Name = "Thilai_title";
-            this.Thilai_title.Size = new System.Drawing.Size(93, 17);
-            this.Thilai_title.TabIndex = 101;
-            this.Thilai_title.Text = "Số lần thi lại :";
-            // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.MediumSeaGreen;
@@ -381,14 +393,15 @@ namespace QuanlyTrungtam
             this.button1.Text = "Xem lịch thi";
             this.button1.UseVisualStyleBackColor = false;
             // 
-            // Thilai
+            // comp
             // 
-            this.Thilai.AutoSize = true;
-            this.Thilai.Location = new System.Drawing.Point(800, 89);
-            this.Thilai.Name = "Thilai";
-            this.Thilai.Size = new System.Drawing.Size(26, 18);
-            this.Thilai.TabIndex = 102;
-            this.Thilai.Text = "00";
+            this.comp.AutoSize = true;
+            this.comp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comp.Location = new System.Drawing.Point(387, 0);
+            this.comp.Name = "comp";
+            this.comp.Size = new System.Drawing.Size(116, 25);
+            this.comp.TabIndex = 103;
+            this.comp.Text = "Completed";
             // 
             // Student_ManageClass
             // 
@@ -443,13 +456,14 @@ namespace QuanlyTrungtam
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label Name_CurTeacher;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label SobuoiVang;
+        private System.Windows.Forms.Label text;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label DiemThi_Title;
         private System.Windows.Forms.Label DiemThi;
         private System.Windows.Forms.Label Thilai;
         private System.Windows.Forms.Label Thilai_title;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label comp;
     }
 }

@@ -60,6 +60,8 @@ namespace QuanlyTrungtam
             this.CheckPaid = new System.Windows.Forms.ComboBox();
             this.Courses_Reload = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.Num_Student = new System.Windows.Forms.TextBox();
+            this.ID_Class = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // DonDK_View
@@ -146,7 +148,7 @@ namespace QuanlyTrungtam
             this.KhoaHoc_View.Location = new System.Drawing.Point(701, 36);
             this.KhoaHoc_View.Margin = new System.Windows.Forms.Padding(4);
             this.KhoaHoc_View.Name = "KhoaHoc_View";
-            this.KhoaHoc_View.Size = new System.Drawing.Size(299, 218);
+            this.KhoaHoc_View.Size = new System.Drawing.Size(299, 190);
             this.KhoaHoc_View.TabIndex = 72;
             this.KhoaHoc_View.UseCompatibleStateImageBehavior = false;
             this.KhoaHoc_View.View = System.Windows.Forms.View.Details;
@@ -394,9 +396,9 @@ namespace QuanlyTrungtam
             this.button1.FlatAppearance.BorderColor = System.Drawing.Color.DarkGreen;
             this.button1.FlatAppearance.BorderSize = 3;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button1.Location = new System.Drawing.Point(701, 261);
+            this.button1.Location = new System.Drawing.Point(701, 233);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(299, 28);
             this.button1.TabIndex = 73;
@@ -404,12 +406,28 @@ namespace QuanlyTrungtam
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // Num_Student
+            // 
+            this.Num_Student.Location = new System.Drawing.Point(856, 267);
+            this.Num_Student.Name = "Num_Student";
+            this.Num_Student.Size = new System.Drawing.Size(144, 22);
+            this.Num_Student.TabIndex = 91;
+            // 
+            // ID_Class
+            // 
+            this.ID_Class.Location = new System.Drawing.Point(701, 267);
+            this.ID_Class.Name = "ID_Class";
+            this.ID_Class.Size = new System.Drawing.Size(149, 22);
+            this.ID_Class.TabIndex = 92;
+            // 
             // StudentManager_Approve
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
-            this.ClientSize = new System.Drawing.Size(1011, 552);
+            this.ClientSize = new System.Drawing.Size(1012, 552);
+            this.Controls.Add(this.ID_Class);
+            this.Controls.Add(this.Num_Student);
             this.Controls.Add(this.CheckPaid);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.Student_Email);
@@ -473,5 +491,7 @@ namespace QuanlyTrungtam
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.ComboBox CheckPaid;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox Num_Student;
+        private System.Windows.Forms.TextBox ID_Class;
     }
 }

@@ -72,6 +72,7 @@ namespace QuanlyTrungtam
         }
         private void Init_ListSubGr()
         {
+            List_SubGr.Nodes.Clear();
             List_SubGr.BeginUpdate();
             List_SubGr.Nodes.Add("HocPhan", "Học phần");
             List_SubGr.Nodes.Add("NhanhHoc", "Nhánh học");
@@ -217,6 +218,7 @@ namespace QuanlyTrungtam
 
             Thilai.Hide();
             Thilai_title.Hide();
+            comp.Hide();
 
             Edu_Form_LoadIndex();
             LoadCoursesListView();
@@ -230,16 +232,19 @@ namespace QuanlyTrungtam
 
         private void ResetInfo()
         {
-            Name_CurClass.Text = "_______________________";
+            Name_CurClass.Text = "_____________________";
             Name_CurTeacher.Text = "__________________";
-            SobuoiVang.Text = "00";
+            text.Text = "00";
             Contact_CurTeacher.Text = "___________________";
+            DiemThi_Title.Text = "Điểm thi :";
             DiemThi.Text = "000";
             Thilai.Hide();
             Thilai_title.Hide();
+            comp.Hide();
         }
         private void Detail_button_Click(object sender, EventArgs e)
         {
+            ResetInfo();
             if (string.IsNullOrEmpty(List_SubGr.SelectedNode.Text)) MessageBox.Show("Select Class you wanna see!!!");
             else
             {
@@ -258,7 +263,7 @@ namespace QuanlyTrungtam
                         while (reader.Read())
                         {
                             Name_CurClass.Text = reader["Ten_Monhoc"].ToString();
-                            SobuoiVang.Text = reader["Sobuoivang"].ToString();
+                            text.Text = reader["Sobuoivang"].ToString();
                             Name_CurTeacher.Text = reader["Ten_NV"].ToString();
                             Contact_CurTeacher.Text = reader["SDT"].ToString() + " / " + reader["Email"].ToString();
                             DiemThi.Text = reader["Diemthi"].ToString();
@@ -267,7 +272,53 @@ namespace QuanlyTrungtam
                         conn.Close();
                     }
                 }
+                else if (List_SubGr.SelectedNode.Parent.Name == "HocPhan")
+                {
+                    DiemThi_Title.Text = "Điểm trung bình :";
+                    Thilai.Show();
+                    Thilai_title.Show();
+                    using (SqlConnection conn = new SqlConnection(ConnectionString.connect))
+                    {
+                        conn.Open();
+                        string qry = "Select Sum(C.DiemThi) as Tongdiem, Count(B.ID_Monhoc) as Soluong" +
+                                             " from DS_HocPhan A join Chitiet_Hocphan B ON A.ID_Hocphan = B.ID_Hocphan "
+                                                            + " join DSLopHoc C ON C.ID_Monhoc = B.ID_Monhoc "
+                                                            + " where C.ID_Hocvien = " + Signin.ID.ToString() + " and A.Ten_Hocphan = N'" + List_SubGr.SelectedNode.Text +"'";
+                        //MessageBox.Show(qry);
+                        SqlCommand cmd = new SqlCommand(qry, conn);
+                        SqlDataReader reader = cmd.ExecuteReader();
+
+                        while(reader.Read())
+                        {
+                            DiemThi.Text = (float.Parse(reader["Tongdiem"].ToString()) / Int32.Parse(reader["Soluong"].ToString())).ToString();
+                            //Thilai.Text = reader["Solanthilai"].ToString();
+                        }
+                        conn.Close();
+                    }
+                    using (SqlConnection conn = new SqlConnection(ConnectionString.connect))
+                    {
+                        conn.Open();
+                        string qry = "Select * from KetquaHocphan A join DS_HocPhan B ON A.ID_Hocphan = B.ID_Hocphan and " +
+                            "ID_Hocvien = " + Signin.ID.ToString() + " and ID_Khoa = " + IDCur_Course.Text;
+                        SqlCommand cmd = new SqlCommand(qry, conn);
+                        SqlDataReader reader = cmd.ExecuteReader();
+                        if (reader.Read())
+                        {
+                            Thilai.Text = reader["Solanthilai"].ToString();
+                            if (reader["Hoanthanh"].ToString() == "1")
+                                comp.Show();
+                        }
+                        conn.Close();
+                    }
+                }
             }
+        }
+
+        private void Courses_Reload_Click(object sender, EventArgs e)
+        {
+            ResetInfo();
+            LoadCoursesListView();
+            Init_ListSubGr();
         }
     }
 }

@@ -192,6 +192,8 @@ namespace QuanlyTrungtam
             Student_ID.Text = "000";
             Student_Name.Text = "_________________";
             Student_SDT.Text = "________________";
+            ID_Class.Text = "";
+            Num_Student.Text = "";
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -217,7 +219,37 @@ namespace QuanlyTrungtam
                     }
                     conn.Close();
                 }
+                ID_Class.Text = "Mã khóa học : "  + Items[0].SubItems[0].Text;
+                using (SqlConnection conn = new SqlConnection(ConnectionString.connect))
+                {
+                    conn.Open();
+                    string qry = "Select Soluong from KhoaDaoTao " +
+                                "where ID_Khoa = " + Items[0].SubItems[0].Text;
+                    SqlCommand cmd = new SqlCommand(qry, conn);
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        using (SqlConnection con = new SqlConnection(ConnectionString.connect))
+                        {
+                            con.Open();
+                            SqlCommand Soluong = new SqlCommand("KhoaHoc_Dangki", con);
+                            Soluong.Parameters.AddWithValue("@idKhoahoc", Int32.Parse(Items[0].SubItems[0].Text));
+                            Soluong.CommandType = CommandType.StoredProcedure;
+                            SqlParameter res = new SqlParameter("@returnvalue", SqlDbType.Int);
+                            res.Direction = ParameterDirection.ReturnValue;
+                            Soluong.Parameters.Add(res);
+                            Soluong.ExecuteNonQuery();
+                            object Currentnum = Soluong.Parameters["@returnvalue"].Value;
+
+                            Num_Student.Text = "Sĩ số :      " + Currentnum.ToString() + "/" + reader["Soluong"].ToString();
+                            con.Close();
+                        }
+                    }
+                    conn.Close();
+                }
+                Load_Khoahoc();
             }
+
         }
 
         private void Month_Filter_SelectedIndexChanged(object sender, EventArgs e)

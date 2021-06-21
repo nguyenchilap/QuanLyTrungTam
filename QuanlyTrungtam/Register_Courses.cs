@@ -366,6 +366,28 @@ namespace QuanlyTrungtam
                 else if (Items.Count > 1) MessageBox.Show("Select just 1 Course !!");
                 else
                 {
+                    //check soluong
+                    string temp = Items[0].SubItems[4].Text;
+                    int i = 0;
+                    string temp1 = "", temp2 = "";
+                    while (temp[i] != '/')
+                    {
+                        temp1 += temp[i];
+                        i++;
+                    }
+                    i++;
+                    while (i < temp.Length - 1)
+                    {
+                        temp2 += temp[i];
+                        i++;
+                    }
+                    if (temp1 == temp2)
+                    {
+                        MessageBox.Show("Sorry !!Course is full !!!!");
+                        return;
+                    }
+
+
                     DialogResult res = MessageBox.Show("Are you sure to Register this Course ?!", "Registering", MessageBoxButtons.YesNo);
                     if (res == DialogResult.Yes)
                     {
