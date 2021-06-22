@@ -141,22 +141,22 @@ namespace QuanlyTrungtam
             // Id
             // 
             this.Id.AutoSize = true;
-            this.Id.Font = new System.Drawing.Font("VNI-Jamai", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Id.Font = new System.Drawing.Font("UVN Tin Tuc Hep", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Id.ForeColor = System.Drawing.Color.Black;
-            this.Id.Location = new System.Drawing.Point(65, 62);
+            this.Id.Location = new System.Drawing.Point(46, 62);
             this.Id.Name = "Id";
-            this.Id.Size = new System.Drawing.Size(58, 34);
+            this.Id.Size = new System.Drawing.Size(50, 35);
             this.Id.TabIndex = 13;
             this.Id.Text = "ID : ";
             // 
             // NamePerson
             // 
             this.NamePerson.AutoSize = true;
-            this.NamePerson.Font = new System.Drawing.Font("VNI-Jamai", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NamePerson.Font = new System.Drawing.Font("UVN Tin Tuc Hep", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NamePerson.ForeColor = System.Drawing.Color.Black;
-            this.NamePerson.Location = new System.Drawing.Point(229, 62);
+            this.NamePerson.Location = new System.Drawing.Point(167, 62);
             this.NamePerson.Name = "NamePerson";
-            this.NamePerson.Size = new System.Drawing.Size(93, 34);
+            this.NamePerson.Size = new System.Drawing.Size(82, 35);
             this.NamePerson.TabIndex = 14;
             this.NamePerson.Text = "Name : ";
             // 

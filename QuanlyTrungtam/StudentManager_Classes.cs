@@ -217,34 +217,63 @@ namespace QuanlyTrungtam
 
         private void ViewStudentList_Click(object sender, EventArgs e)
         {
-            //if (List_SubGr.SelectedNode.Level)
-            using (SqlConnection conn = new SqlConnection(ConnectionString.connect))
+            StudentView.Items.Clear();
+            if (List_SubGr.SelectedNode.Parent.Name == "HocPhan")
             {
-                conn.Open();
-                string qry = "Select A.ID_Monhoc, C.ID_Hocvien, C.Ten_Hocvien, A.Diemthi " +
-                                "from DSLopHoc A join DS_Monhoc B ON A.ID_Monhoc = B.ID_Monhoc " +
-                                                "join HocVien C ON A.ID_Hocvien = C.ID_Hocvien " +
-                                " where A.ID_Khoa = " + CurCourse_ID.Text 
-                              + " and B.Ten_Monhoc = N'" + List_SubGr.SelectedNode.Text +"'";
-                //MessageBox.Show(qry);
-                SqlCommand cmd = new SqlCommand(qry, conn);
-
-                var watch = System.Diagnostics.Stopwatch.StartNew();
-                SqlDataReader reader = cmd.ExecuteReader();
-
-                while (reader.Read())
+                StudentView.Columns[2].Text = "Điểm trung bình";
+                using (SqlConnection conn = new SqlConnection(ConnectionString.connect))
                 {
-                    ListViewItem item = new ListViewItem(reader["ID_Hocvien"].ToString());
-                    item.SubItems.Add(reader["Ten_Hocvien"].ToString());
-                    item.SubItems.Add(reader["Diemthi"].ToString());
-                    StudentView.Items.Add(item);
-
-                    CurSub_ID.Text = reader["ID_Monhoc"].ToString();
-                    CurSub_Name.Text = List_SubGr.SelectedNode.Text;
-                }
+                    conn.Open();
+                    string qry = "Select A.ID_Hocvien, B.Ten_Hocvien" +
+                        "From KetquaHocphan A JOIN HocVien B ON A.ID_Hocvien = B.ID_Hocvien " +
+                                            " JOIN DS_HocPhan C ON C.ID_Hocphan = A.ID_Hocphan " +
+                        "Where A.ID_Hocvien = " + Signin.ID + " and C.Ten_Hocphan = N'" + List_SubGr.SelectedNode.Text + "' " +  
+                        "Group by A.ID_Hocvien, B.Ten_Hocvien";
                  
-                watch.Stop();
-                conn.Close();
+                    SqlCommand cmd = new SqlCommand(qry, conn);
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        ListViewItem item = new ListViewItem(reader["ID_Hocvien"].ToString());
+                        item.SubItems.Add(reader["Ten_Hocvien"].ToString());
+                        item.SubItems.Add(reader["DTB"].ToString());
+                        StudentView.Items.Add(item);
+                    }
+                    conn.Close();
+                }
+            }
+            else
+            {
+                StudentView.Columns[2].Text = "Điểm thi";
+                using (SqlConnection conn = new SqlConnection(ConnectionString.connect))
+                {
+                    conn.Open();
+                    string qry = "Select A.ID_Monhoc, C.ID_Hocvien, C.Ten_Hocvien, A.Diemthi " +
+                                    "from DSLopHoc A join DS_Monhoc B ON A.ID_Monhoc = B.ID_Monhoc " +
+                                                    "join HocVien C ON A.ID_Hocvien = C.ID_Hocvien " +
+                                    " where A.ID_Khoa = " + CurCourse_ID.Text
+                                  + " and B.Ten_Monhoc = N'" + List_SubGr.SelectedNode.Text + "'";
+                    //MessageBox.Show(qry);
+                    SqlCommand cmd = new SqlCommand(qry, conn);
+
+                    var watch = System.Diagnostics.Stopwatch.StartNew();
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        ListViewItem item = new ListViewItem(reader["ID_Hocvien"].ToString());
+                        item.SubItems.Add(reader["Ten_Hocvien"].ToString());
+                        item.SubItems.Add(reader["Diemthi"].ToString());
+                        StudentView.Items.Add(item);
+
+                        CurSub_ID.Text = reader["ID_Monhoc"].ToString();
+                        CurSub_Name.Text = List_SubGr.SelectedNode.Text;
+                    }
+
+                    watch.Stop();
+                    conn.Close();
+                }
             }
         }
 

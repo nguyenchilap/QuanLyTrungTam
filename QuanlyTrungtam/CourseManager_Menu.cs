@@ -44,6 +44,7 @@ namespace QuanlyTrungtam
             DialogResult res = MessageBox.Show("You will be logged out. Continue ?", "Log out", button);
             if (res == DialogResult.Yes)
             {
+                Signin.ID = 0;
                 this.Hide();
                 Signin temp = new Signin();
                 temp.ShowDialog();

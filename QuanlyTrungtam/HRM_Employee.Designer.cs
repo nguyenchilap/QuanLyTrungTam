@@ -411,7 +411,7 @@ namespace QuanlyTrungtam
             this.GrantManage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.GrantManage.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GrantManage.ForeColor = System.Drawing.Color.Black;
-            this.GrantManage.Location = new System.Drawing.Point(1079, 257);
+            this.GrantManage.Location = new System.Drawing.Point(1079, 226);
             this.GrantManage.Name = "GrantManage";
             this.GrantManage.Size = new System.Drawing.Size(160, 42);
             this.GrantManage.TabIndex = 85;
@@ -428,7 +428,7 @@ namespace QuanlyTrungtam
             this.LeaveWork.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.LeaveWork.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LeaveWork.ForeColor = System.Drawing.Color.Black;
-            this.LeaveWork.Location = new System.Drawing.Point(1079, 320);
+            this.LeaveWork.Location = new System.Drawing.Point(1079, 288);
             this.LeaveWork.Name = "LeaveWork";
             this.LeaveWork.Size = new System.Drawing.Size(160, 42);
             this.LeaveWork.TabIndex = 86;

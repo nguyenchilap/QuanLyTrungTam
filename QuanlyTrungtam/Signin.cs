@@ -29,7 +29,7 @@ namespace QuanlyTrungtam
 
         private void Signin_Load(object sender, EventArgs e)
         {
-            ID = 0;
+            ID = 0; Type_Person = 0;
             Program.ChangePass = false;
             IsManager = false;
         }
@@ -138,7 +138,7 @@ namespace QuanlyTrungtam
                         }
                         watch.Stop();
                         this.Hide();
-
+                        check_Menu = Int32.Parse(checkDN.ToString());
                         CheckisManager();
                         //MessageBox.Show(IsManager.ToString());
                         if (Type_Person == 1)
@@ -153,12 +153,16 @@ namespace QuanlyTrungtam
                                 HRM_Employee temp = new HRM_Employee();
                                 temp.ShowDialog();
                             }
+                            if (Int32.Parse(checkDN.ToString()) == 3)
+                            {
+                                Teacher_Menu temp = new Teacher_Menu();
+                                temp.ShowDialog();
+                            }
                             if (Int32.Parse(checkDN.ToString()) == 4)
                             {
                                 StudentManager_Menu temp = new StudentManager_Menu();
                                 temp.ShowDialog();
                             }
-                            check_Menu = Int32.Parse(checkDN.ToString());
                         }
                         else
                         {

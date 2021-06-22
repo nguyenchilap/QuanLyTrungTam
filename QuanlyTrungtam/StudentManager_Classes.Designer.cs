@@ -53,6 +53,12 @@ namespace QuanlyTrungtam
             this.Courses_Reload = new System.Windows.Forms.Button();
             this.Back_button = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // Courses_View
@@ -233,7 +239,7 @@ namespace QuanlyTrungtam
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(160, 376);
+            this.label15.Location = new System.Drawing.Point(28, 445);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(109, 18);
             this.label15.TabIndex = 69;
@@ -255,7 +261,7 @@ namespace QuanlyTrungtam
             "10",
             "11",
             "12"});
-            this.FilterMonth.Location = new System.Drawing.Point(163, 398);
+            this.FilterMonth.Location = new System.Drawing.Point(29, 466);
             this.FilterMonth.Name = "FilterMonth";
             this.FilterMonth.Size = new System.Drawing.Size(106, 24);
             this.FilterMonth.TabIndex = 68;
@@ -345,12 +351,52 @@ namespace QuanlyTrungtam
             this.label10.TabIndex = 72;
             this.label10.Text = "KHÓA HỌC";
             // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(967, 448);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(92, 22);
+            this.numericUpDown1.TabIndex = 73;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.textBox1.Location = new System.Drawing.Point(18, 52);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(84, 22);
+            this.textBox1.TabIndex = 74;
+            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(15, 31);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(87, 18);
+            this.label1.TabIndex = 75;
+            this.label1.Text = "Số lần thi lại";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Location = new System.Drawing.Point(566, 421);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(310, 144);
+            this.groupBox1.TabIndex = 76;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Kết quả học phần";
+            // 
             // StudentManager_Classes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
             this.ClientSize = new System.Drawing.Size(1308, 577);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.Back_button);
             this.Controls.Add(this.Courses_Reload);
@@ -371,6 +417,9 @@ namespace QuanlyTrungtam
             this.Name = "StudentManager_Classes";
             this.Text = "Classes";
             this.Load += new System.EventHandler(this.Manager_Classes_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -401,5 +450,9 @@ namespace QuanlyTrungtam
         private System.Windows.Forms.Button Courses_Reload;
         private System.Windows.Forms.Button Back_button;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }

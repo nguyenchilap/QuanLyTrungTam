@@ -10,19 +10,40 @@ using System.Windows.Forms;
 
 namespace QuanlyTrungtam
 {
-    public partial class Student_Menu : Form
+    public partial class Teacher_Menu : Form
     {
-        public Student_Menu()
+        public Teacher_Menu()
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Register_Courses temp = new Register_Courses();
+            ManageAccount temp = new ManageAccount();
             temp.ShowDialog();
             this.Close();
+        }
+
+        private void Teacher_Menu_Load(object sender, EventArgs e)
+        {
+            if(!Signin.IsManager)
+            {
+                button1.BackColor = Color.LightGray;
+                button1.ForeColor = Color.Black;
+                button1.FlatAppearance.BorderColor = Color.Gray;
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (button1.BackColor != Color.LightGray)
+            {
+                this.Hide();
+                Teacher_Manage temp = new Teacher_Manage();
+                temp.ShowDialog();
+                this.Close();
+            }
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -37,22 +58,6 @@ namespace QuanlyTrungtam
                 temp.ShowDialog();
                 this.Close();
             }
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            Student_ManageClass temp = new Student_ManageClass();
-            temp.ShowDialog();
-            this.Close();
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            ManageAccount temp = new ManageAccount();
-            temp.ShowDialog();
-            this.Close();
         }
     }
 }

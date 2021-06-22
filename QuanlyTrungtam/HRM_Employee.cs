@@ -173,8 +173,17 @@ namespace QuanlyTrungtam
                     DOB_input.Value.ToString("MM/dd/yyyy") + "' , '" + phonenum_input.Text + "', '" +
                     email_input.Text + "@gmail.com' , '" + dateBegin_input.Value.ToString("MM/dd/yyyy") + "', " +
                     "(Select ID_Phongban from PhongBan where Ten_Phongban = N'" + Department_State.Text + "'),NULL)";
+
                 //MessageBox.Show(qry_NV);
                 Program.ExecCmd(qry_NV);
+
+                //Them vao bang giao vien
+                if (Department_State.Text == "Phòng Chuyên môn")
+                {
+                    string qry_teach = "Insert into GiaoVien values ((Select Max(ID_NV) from NhanVien),'')" ;
+                    Program.ExecCmd(qry_teach);
+                }
+
                 string qry_TKNV = "Insert into Taikhoan_Nhanvienn values ('" + Username.Text + "','" + Pass.Text + "',"
                     + "(Select Max(ID_NV) from NhanVien))";
                 //MessageBox.Show(qry_TKNV);
