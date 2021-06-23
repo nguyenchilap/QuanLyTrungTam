@@ -29,19 +29,18 @@ namespace QuanlyTrungtam
         /// </summary>
         private void InitializeComponent()
         {
-            this.Courses_View = new System.Windows.Forms.ListView();
+            this.EmployeeView = new System.Windows.Forms.ListView();
             this.ID_Teacher = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Name_Teacher = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Email_Teacger = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SDT_Teacher = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Major = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label10 = new System.Windows.Forms.Label();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.ClassView = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.MajorText = new System.Windows.Forms.ComboBox();
-            this.Reload = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.FilterMonth = new System.Windows.Forms.ComboBox();
             this.FilterCourse = new System.Windows.Forms.ComboBox();
@@ -49,29 +48,32 @@ namespace QuanlyTrungtam
             this.GrantButton = new System.Windows.Forms.Button();
             this.Back = new System.Windows.Forms.Button();
             this.Detail_button = new System.Windows.Forms.Button();
+            this.Reload = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // Courses_View
+            // EmployeeView
             // 
-            this.Courses_View.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.Courses_View.CheckBoxes = true;
-            this.Courses_View.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.EmployeeView.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.EmployeeView.CheckBoxes = true;
+            this.EmployeeView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.ID_Teacher,
             this.Name_Teacher,
             this.Email_Teacger,
             this.SDT_Teacher,
             this.Major});
-            this.Courses_View.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Courses_View.FullRowSelect = true;
-            this.Courses_View.GridLines = true;
-            this.Courses_View.HideSelection = false;
-            this.Courses_View.Location = new System.Drawing.Point(22, 70);
-            this.Courses_View.Margin = new System.Windows.Forms.Padding(4);
-            this.Courses_View.Name = "Courses_View";
-            this.Courses_View.Size = new System.Drawing.Size(650, 304);
-            this.Courses_View.TabIndex = 58;
-            this.Courses_View.UseCompatibleStateImageBehavior = false;
-            this.Courses_View.View = System.Windows.Forms.View.Details;
+            this.EmployeeView.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EmployeeView.FullRowSelect = true;
+            this.EmployeeView.GridLines = true;
+            this.EmployeeView.HideSelection = false;
+            this.EmployeeView.Location = new System.Drawing.Point(22, 70);
+            this.EmployeeView.Margin = new System.Windows.Forms.Padding(4);
+            this.EmployeeView.Name = "EmployeeView";
+            this.EmployeeView.Size = new System.Drawing.Size(650, 304);
+            this.EmployeeView.TabIndex = 58;
+            this.EmployeeView.UseCompatibleStateImageBehavior = false;
+            this.EmployeeView.View = System.Windows.Forms.View.Details;
             // 
             // ID_Teacher
             // 
@@ -112,25 +114,25 @@ namespace QuanlyTrungtam
             this.label10.TabIndex = 95;
             this.label10.Text = "DANH SÁCH NHÂN VIÊN";
             // 
-            // listView1
+            // ClassView
             // 
-            this.listView1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.listView1.CheckBoxes = true;
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.ClassView.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.ClassView.CheckBoxes = true;
+            this.ClassView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3});
-            this.listView1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listView1.FullRowSelect = true;
-            this.listView1.GridLines = true;
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(765, 70);
-            this.listView1.Margin = new System.Windows.Forms.Padding(4);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(402, 371);
-            this.listView1.TabIndex = 96;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
+            this.ClassView.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ClassView.FullRowSelect = true;
+            this.ClassView.GridLines = true;
+            this.ClassView.HideSelection = false;
+            this.ClassView.Location = new System.Drawing.Point(765, 70);
+            this.ClassView.Margin = new System.Windows.Forms.Padding(4);
+            this.ClassView.Name = "ClassView";
+            this.ClassView.Size = new System.Drawing.Size(402, 396);
+            this.ClassView.TabIndex = 96;
+            this.ClassView.UseCompatibleStateImageBehavior = false;
+            this.ClassView.View = System.Windows.Forms.View.Details;
             // 
             // columnHeader1
             // 
@@ -152,32 +154,16 @@ namespace QuanlyTrungtam
             // MajorText
             // 
             this.MajorText.FormattingEnabled = true;
-            this.MajorText.Location = new System.Drawing.Point(259, 406);
+            this.MajorText.Location = new System.Drawing.Point(275, 411);
             this.MajorText.Name = "MajorText";
-            this.MajorText.Size = new System.Drawing.Size(277, 24);
+            this.MajorText.Size = new System.Drawing.Size(225, 24);
             this.MajorText.TabIndex = 97;
             this.MajorText.SelectedIndexChanged += new System.EventHandler(this.MajorText_SelectedIndexChanged);
-            // 
-            // Reload
-            // 
-            this.Reload.BackColor = System.Drawing.Color.AliceBlue;
-            this.Reload.BackgroundImage = global::QuanlyTrungtam.Properties.Resources.redo_solid;
-            this.Reload.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Reload.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Reload.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Reload.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Reload.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Reload.Location = new System.Drawing.Point(240, 24);
-            this.Reload.Name = "Reload";
-            this.Reload.Size = new System.Drawing.Size(32, 31);
-            this.Reload.TabIndex = 98;
-            this.Reload.UseVisualStyleBackColor = false;
-            this.Reload.Click += new System.EventHandler(this.Reload_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(256, 386);
+            this.label1.Location = new System.Drawing.Point(272, 391);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(87, 17);
             this.label1.TabIndex = 99;
@@ -198,12 +184,12 @@ namespace QuanlyTrungtam
             "9",
             "10",
             "11",
-            "12",
-            "All"});
+            "12"});
             this.FilterMonth.Location = new System.Drawing.Point(765, 39);
             this.FilterMonth.Name = "FilterMonth";
             this.FilterMonth.Size = new System.Drawing.Size(65, 24);
             this.FilterMonth.TabIndex = 100;
+            this.FilterMonth.SelectedIndexChanged += new System.EventHandler(this.FilterMonth_SelectedIndexChanged);
             // 
             // FilterCourse
             // 
@@ -212,12 +198,12 @@ namespace QuanlyTrungtam
             this.FilterCourse.Name = "FilterCourse";
             this.FilterCourse.Size = new System.Drawing.Size(242, 24);
             this.FilterCourse.TabIndex = 101;
+            this.FilterCourse.SelectedIndexChanged += new System.EventHandler(this.FilterCourse_SelectedIndexChanged);
             // 
             // FilterYear
             // 
             this.FilterYear.FormattingEnabled = true;
             this.FilterYear.Items.AddRange(new object[] {
-            "All",
             "2010",
             "2011",
             "2012",
@@ -253,22 +239,25 @@ namespace QuanlyTrungtam
             this.FilterYear.Name = "FilterYear";
             this.FilterYear.Size = new System.Drawing.Size(83, 24);
             this.FilterYear.TabIndex = 102;
+            this.FilterYear.SelectedIndexChanged += new System.EventHandler(this.FilterYear_SelectedIndexChanged);
             // 
             // GrantButton
             // 
-            this.GrantButton.BackColor = System.Drawing.Color.Khaki;
+            this.GrantButton.BackColor = System.Drawing.Color.CadetBlue;
+            this.GrantButton.BackgroundImage = global::QuanlyTrungtam.Properties.Resources._1200px_Arrow_icon_svg;
+            this.GrantButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.GrantButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.GrantButton.FlatAppearance.BorderColor = System.Drawing.Color.Olive;
+            this.GrantButton.FlatAppearance.BorderColor = System.Drawing.Color.CadetBlue;
             this.GrantButton.FlatAppearance.BorderSize = 3;
             this.GrantButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.GrantButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GrantButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.GrantButton.Location = new System.Drawing.Point(679, 198);
+            this.GrantButton.Location = new System.Drawing.Point(690, 207);
             this.GrantButton.Name = "GrantButton";
-            this.GrantButton.Size = new System.Drawing.Size(79, 62);
+            this.GrantButton.Size = new System.Drawing.Size(54, 54);
             this.GrantButton.TabIndex = 103;
-            this.GrantButton.Text = "GRANT";
             this.GrantButton.UseVisualStyleBackColor = false;
+            this.GrantButton.Click += new System.EventHandler(this.GrantButton_Click_1);
             // 
             // Back
             // 
@@ -279,7 +268,7 @@ namespace QuanlyTrungtam
             this.Back.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Back.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Back.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Back.Location = new System.Drawing.Point(22, 391);
+            this.Back.Location = new System.Drawing.Point(22, 416);
             this.Back.Name = "Back";
             this.Back.Size = new System.Drawing.Size(138, 50);
             this.Back.TabIndex = 104;
@@ -296,20 +285,65 @@ namespace QuanlyTrungtam
             this.Detail_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Detail_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Detail_button.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Detail_button.Location = new System.Drawing.Point(555, 391);
+            this.Detail_button.Location = new System.Drawing.Point(535, 428);
             this.Detail_button.Name = "Detail_button";
-            this.Detail_button.Size = new System.Drawing.Size(117, 50);
+            this.Detail_button.Size = new System.Drawing.Size(137, 38);
             this.Detail_button.TabIndex = 105;
             this.Detail_button.Text = "Add";
             this.Detail_button.UseVisualStyleBackColor = false;
             this.Detail_button.Click += new System.EventHandler(this.Detail_button_Click);
+            // 
+            // Reload
+            // 
+            this.Reload.BackColor = System.Drawing.Color.AliceBlue;
+            this.Reload.BackgroundImage = global::QuanlyTrungtam.Properties.Resources.redo_solid;
+            this.Reload.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Reload.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Reload.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Reload.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Reload.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Reload.Location = new System.Drawing.Point(240, 24);
+            this.Reload.Name = "Reload";
+            this.Reload.Size = new System.Drawing.Size(32, 31);
+            this.Reload.TabIndex = 98;
+            this.Reload.UseVisualStyleBackColor = false;
+            this.Reload.Click += new System.EventHandler(this.Reload_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(687, 187);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(62, 17);
+            this.label2.TabIndex = 106;
+            this.label2.Text = "GRANT";
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Khaki;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.DarkOliveGreen;
+            this.button1.FlatAppearance.BorderSize = 3;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button1.Location = new System.Drawing.Point(535, 384);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(137, 38);
+            this.button1.TabIndex = 107;
+            this.button1.Text = "Filter";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Teacher_Manage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.CadetBlue;
-            this.ClientSize = new System.Drawing.Size(1196, 460);
+            this.ClientSize = new System.Drawing.Size(1185, 478);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.Detail_button);
             this.Controls.Add(this.Back);
             this.Controls.Add(this.GrantButton);
@@ -319,9 +353,9 @@ namespace QuanlyTrungtam
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Reload);
             this.Controls.Add(this.MajorText);
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.ClassView);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.Courses_View);
+            this.Controls.Add(this.EmployeeView);
             this.Name = "Teacher_Manage";
             this.Text = "Teacher_Manage";
             this.Load += new System.EventHandler(this.Teacher_Manage_Load);
@@ -332,14 +366,14 @@ namespace QuanlyTrungtam
 
         #endregion
 
-        private System.Windows.Forms.ListView Courses_View;
+        private System.Windows.Forms.ListView EmployeeView;
         private System.Windows.Forms.ColumnHeader ID_Teacher;
         private System.Windows.Forms.ColumnHeader Name_Teacher;
         private System.Windows.Forms.ColumnHeader Email_Teacger;
         private System.Windows.Forms.ColumnHeader SDT_Teacher;
         private System.Windows.Forms.ColumnHeader Major;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView ClassView;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
@@ -352,5 +386,7 @@ namespace QuanlyTrungtam
         private System.Windows.Forms.Button GrantButton;
         private System.Windows.Forms.Button Back;
         private System.Windows.Forms.Button Detail_button;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button button1;
     }
 }

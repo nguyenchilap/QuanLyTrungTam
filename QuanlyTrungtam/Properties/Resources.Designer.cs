@@ -93,6 +93,16 @@ namespace QuanlyTrungtam.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _8b1d116ec2355a551ed1f9923f908f78 {
+            get {
+                object obj = ResourceManager.GetObject("8b1d116ec2355a551ed1f9923f908f78", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap button_previous_01 {
             get {
                 object obj = ResourceManager.GetObject("button_previous_01", resourceCulture);
