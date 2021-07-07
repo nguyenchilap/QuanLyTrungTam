@@ -457,8 +457,8 @@ namespace QuanlyTrungtam
               
                     if (reader.Read())
                     {
-                        nametext = " Giáo viên : " + reader["ID_GV"].ToString() + "   -      " + reader["Ten_NV"].ToString();
-                        contacttext += " SĐT : " + reader["SDT"].ToString() + " -    Email : " + reader["Email"].ToString();
+                        nametext = " Giáo viên : " + reader["ID_GV"].ToString() + "   -   " + reader["Ten_NV"].ToString();
+                        contacttext += " SĐT : " + reader["SDT"].ToString() + " - Email : " + reader["Email"].ToString();
                      
                     }
                     Name_teacher.Text = nametext;

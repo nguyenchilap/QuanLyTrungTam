@@ -151,6 +151,7 @@ namespace QuanlyTrungtam
             this.Rule_text.Location = new System.Drawing.Point(26, 363);
             this.Rule_text.Multiline = true;
             this.Rule_text.Name = "Rule_text";
+            this.Rule_text.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.Rule_text.Size = new System.Drawing.Size(224, 176);
             this.Rule_text.TabIndex = 15;
             // 

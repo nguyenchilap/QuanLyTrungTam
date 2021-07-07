@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CourseManager_Exams.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CourseManager_Exams.Designer.cs">
+      <DependentUpon>CourseManager_Exams.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -151,6 +157,9 @@
     <Compile Include="Teacher_Menu.Designer.cs">
       <DependentUpon>Teacher_Menu.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="CourseManager_Exams.resx">
+      <DependentUpon>CourseManager_Exams.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Register_Courses.resx">
       <DependentUpon>Register_Courses.cs</DependentUpon>
     </EmbeddedResource>

@@ -77,6 +77,8 @@ namespace QuanlyTrungtam
             this.Drop_button = new System.Windows.Forms.Button();
             this.add_button = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
@@ -111,8 +113,8 @@ namespace QuanlyTrungtam
             this.Course_Name_text = new System.Windows.Forms.TextBox();
             this.Manage_Form_button = new System.Windows.Forms.Button();
             this.Courses_Reload = new System.Windows.Forms.Button();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
+            this.View_Exam = new System.Windows.Forms.Button();
+            this.NgayThi_input = new System.Windows.Forms.DateTimePicker();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Fee_text)).BeginInit();
@@ -697,6 +699,8 @@ namespace QuanlyTrungtam
             // 
             this.tabPage2.BackColor = System.Drawing.Color.LightBlue;
             this.tabPage2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.tabPage2.Controls.Add(this.NgayThi_input);
+            this.tabPage2.Controls.Add(this.View_Exam);
             this.tabPage2.Controls.Add(this.label18);
             this.tabPage2.Controls.Add(this.label16);
             this.tabPage2.Controls.Add(this.label17);
@@ -730,6 +734,26 @@ namespace QuanlyTrungtam
             this.tabPage2.Size = new System.Drawing.Size(1303, 502);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Courses";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(1165, 378);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(58, 29);
+            this.label18.TabIndex = 77;
+            this.label18.Text = "000";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(1081, 378);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(78, 16);
+            this.label16.TabIndex = 76;
+            this.label16.Text = "Tuition Fee:";
             // 
             // label17
             // 
@@ -788,7 +812,7 @@ namespace QuanlyTrungtam
             // 
             this.ID_Course_Detail.AutoSize = true;
             this.ID_Course_Detail.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ID_Course_Detail.Location = new System.Drawing.Point(943, 414);
+            this.ID_Course_Detail.Location = new System.Drawing.Point(981, 378);
             this.ID_Course_Detail.Name = "ID_Course_Detail";
             this.ID_Course_Detail.Size = new System.Drawing.Size(58, 29);
             this.ID_Course_Detail.TabIndex = 63;
@@ -798,7 +822,7 @@ namespace QuanlyTrungtam
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(938, 388);
+            this.label12.Location = new System.Drawing.Point(905, 378);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(70, 16);
             this.label12.TabIndex = 62;
@@ -1132,25 +1156,30 @@ namespace QuanlyTrungtam
             this.Courses_Reload.UseVisualStyleBackColor = false;
             this.Courses_Reload.Click += new System.EventHandler(this.Courses_Reload_Click);
             // 
-            // label16
+            // View_Exam
             // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(1119, 388);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(78, 16);
-            this.label16.TabIndex = 76;
-            this.label16.Text = "Tuition Fee:";
+            this.View_Exam.BackColor = System.Drawing.Color.MediumAquamarine;
+            this.View_Exam.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.View_Exam.FlatAppearance.BorderColor = System.Drawing.Color.Teal;
+            this.View_Exam.FlatAppearance.BorderSize = 2;
+            this.View_Exam.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.View_Exam.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.View_Exam.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.View_Exam.Location = new System.Drawing.Point(908, 452);
+            this.View_Exam.Name = "View_Exam";
+            this.View_Exam.Size = new System.Drawing.Size(369, 32);
+            this.View_Exam.TabIndex = 78;
+            this.View_Exam.Text = "Create Examination";
+            this.View_Exam.UseVisualStyleBackColor = false;
+            this.View_Exam.Click += new System.EventHandler(this.Create_Exam_Click);
             // 
-            // label18
+            // NgayThi_input
             // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(1127, 414);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(58, 29);
-            this.label18.TabIndex = 77;
-            this.label18.Text = "000";
+            this.NgayThi_input.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NgayThi_input.Location = new System.Drawing.Point(908, 424);
+            this.NgayThi_input.Name = "NgayThi_input";
+            this.NgayThi_input.Size = new System.Drawing.Size(369, 22);
+            this.NgayThi_input.TabIndex = 79;
             // 
             // CourseManager_Create
             // 
@@ -1259,5 +1288,7 @@ namespace QuanlyTrungtam
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.DateTimePicker NgayThi_input;
+        private System.Windows.Forms.Button View_Exam;
     }
 }

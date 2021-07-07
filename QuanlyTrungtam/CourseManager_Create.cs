@@ -984,5 +984,19 @@ namespace QuanlyTrungtam
         {
 
         }
+
+        private void Create_Exam_Click(object sender, EventArgs e)
+        {
+            if (NgayThi_input.Value == DateTime.Now)
+                MessageBox.Show("Select the date !!!!");
+            else
+            {
+                using (SqlConnection conn = new SqlConnection(ConnectionString.connect))
+                {
+                    conn.Open();
+                    conn.Close();
+                }
+            }
+        }
     }
 }
