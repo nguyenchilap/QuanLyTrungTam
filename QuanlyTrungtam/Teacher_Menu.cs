@@ -62,7 +62,10 @@ namespace QuanlyTrungtam
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            Teacher_Students temp = new Teacher_Students();
+            temp.ShowDialog();
+            this.Close();
         }
     }
 }

@@ -17,7 +17,33 @@ namespace QuanlyTrungtam
         {
             InitializeComponent();
         }
+        private void Load_Exam(string tenKhoa)
+        {
+            ClassView.Items.Clear();
+            using (SqlConnection conn = new SqlConnection(ConnectionString.connect))
+            {
+                conn.Open();
+                string qry = "Select * from Lichthi A JOIN KhoaDaoTao B ON A.ID_Khoa = B.ID_Khoa " +
+                                                   " JOIN DS_MonHoc C ON C.ID_Monhoc = A.ID_Monhoc " +
+                                                   " JOIN NhanVien D ON D.ID_NV = A.GiaoVienCoiThi " +
+                              "Where B.Ten_Khoa = N'" + tenKhoa + "'";
+                SqlCommand cmd = new SqlCommand(qry, conn);
+                SqlDataReader reader = cmd.ExecuteReader();
 
+                while (reader.Read())
+                {
+                    ListViewItem item = new ListViewItem(reader["Ten_Khoa"].ToString());
+                    item.SubItems.Add(reader["Ten_Monhoc"].ToString());
+                    if (Int32.Parse(reader["ID_NV"].ToString()) == 0)
+                        item.SubItems.Add("Chưa phân");
+                    else
+                        item.SubItems.Add(reader["ID_NV"].ToString());
+                    item.SubItems.Add(reader["Thoigian"].ToString());
+                    ClassView.Items.Add(item);
+                }
+                conn.Close();
+            }
+        }
         private void Load_Class(string tenKhoa)
         {
             ClassView.Items.Clear();
@@ -113,6 +139,7 @@ namespace QuanlyTrungtam
         }
         private void Teacher_Manage_Load(object sender, EventArgs e)
         {
+            Swap_LopHoc.BackColor = Color.Khaki;
             Init_Major();
             Load_GV(null);
         }
@@ -179,12 +206,17 @@ namespace QuanlyTrungtam
                 {
                     foreach (ListViewItem item in Class)
                     {
-                        string qry = "Update LopHoc Set ID_GV = " + GV[0].SubItems[0].Text 
-                                + "Where ID_Khoa = (Select ID_Khoa from KhoaDaoTao where Ten_Khoa = N'" + item.SubItems[0].Text +"')"
+                        string qry = "";
+                        if (Swap_LopHoc.BackColor == Color.Khaki) qry = "Update LopHoc Set ID_GV = " + GV[0].SubItems[0].Text;
+                        if (Swap_LichThi.BackColor == Color.Khaki) qry = "Update LichThi Set GiaoVienCoiThi = " + GV[0].SubItems[0].Text;
+                        qry += " Where ID_Khoa = (Select ID_Khoa from KhoaDaoTao where Ten_Khoa = N'" + item.SubItems[0].Text +"')"
                                 + " and ID_Monhoc = (Select ID_Monhoc from DS_MonHoc where Ten_Monhoc = N'" + item.SubItems[1].Text + "')";
                         Program.ExecCmd(qry);
                     }
-                    Load_Class(FilterCourse.Text);
+                    if (Swap_LopHoc.BackColor == Color.Khaki)
+                        Load_Class(FilterCourse.Text);
+                    if (Swap_LichThi.BackColor == Color.Khaki)
+                        Load_Exam(FilterCourse.Text);
                     Load_GV(MajorText.Text);
                 }
             }
@@ -219,7 +251,31 @@ namespace QuanlyTrungtam
 
         private void FilterCourse_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Load_Class(FilterCourse.SelectedItem.ToString());
+            if (Swap_LopHoc.BackColor == Color.Khaki)
+                Load_Class(FilterCourse.SelectedItem.ToString());
+            else if (Swap_LichThi.BackColor == Color.Khaki)
+                Load_Exam(FilterCourse.SelectedItem.ToString());
+        }
+
+        private void Swap_LopHoc_Click(object sender, EventArgs e)
+        {
+            Swap_LichThi.BackColor = Color.MediumAquamarine;
+            Swap_LopHoc.BackColor = Color.Khaki;
+            try
+            {
+                Load_Class(FilterCourse.SelectedItem.ToString());
+            }
+            catch { return;  }
+        }
+
+        private void Swap_LichThi_Click(object sender, EventArgs e)
+        {
+            Swap_LopHoc.BackColor = Color.Turquoise;
+            Swap_LichThi.BackColor = Color.Khaki;
+            try
+            {
+                Load_Exam(FilterCourse.SelectedItem.ToString());
+            }catch { return; }
         }
     }
 }

@@ -313,5 +313,10 @@ namespace QuanlyTrungtam
             temp.ShowDialog();
             this.Close();
         }
+
+        private void ViewDetail_student_button_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -987,13 +987,26 @@ namespace QuanlyTrungtam
 
         private void Create_Exam_Click(object sender, EventArgs e)
         {
-            if (NgayThi_input.Value == DateTime.Now)
+            ListView.CheckedListViewItemCollection Items = Courses_View.CheckedItems;
+            if (Items.Count <= 0) return;
+            else if (Items.Count > 1) MessageBox.Show("Select 1 Course!!!");   
+            else if (NgayThi_input.Value == DateTime.Now)
                 MessageBox.Show("Select the date !!!!");
             else
             {
                 using (SqlConnection conn = new SqlConnection(ConnectionString.connect))
                 {
                     conn.Open();
+                    SqlCommand cmd = new SqlCommand("Tao_Lichthi",conn);
+                    cmd.Parameters.AddWithValue("@idKhoahoc",Int32.Parse(Items[0].SubItems[0].Text));
+                    cmd.Parameters.AddWithValue("@ngaythi", NgayThi_input.Value.ToString("MM/dd/yyyy"));
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    try
+                    {
+                        cmd.ExecuteNonQuery();
+                        MessageBox.Show("Successful!!!");
+                    }
+                    catch(Exception exc) { MessageBox.Show("Error!!!\n" + exc); }
                     conn.Close();
                 }
             }

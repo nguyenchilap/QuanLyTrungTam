@@ -47,12 +47,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CourseManager_Exams.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CourseManager_Exams.Designer.cs">
-      <DependentUpon>CourseManager_Exams.cs</DependentUpon>
-    </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -115,12 +109,6 @@
     <Compile Include="Signup.Designer.cs">
       <DependentUpon>Signup.cs</DependentUpon>
     </Compile>
-    <Compile Include="StudentManager_Marks.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="StudentManager_Marks.Designer.cs">
-      <DependentUpon>StudentManager_Marks.cs</DependentUpon>
-    </Compile>
     <Compile Include="StudentManager_Menu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -157,9 +145,12 @@
     <Compile Include="Teacher_Menu.Designer.cs">
       <DependentUpon>Teacher_Menu.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="CourseManager_Exams.resx">
-      <DependentUpon>CourseManager_Exams.cs</DependentUpon>
-    </EmbeddedResource>
+    <Compile Include="Teacher_Students.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Teacher_Students.Designer.cs">
+      <DependentUpon>Teacher_Students.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Register_Courses.resx">
       <DependentUpon>Register_Courses.cs</DependentUpon>
     </EmbeddedResource>
@@ -210,6 +201,9 @@
     <EmbeddedResource Include="Teacher_Menu.resx">
       <DependentUpon>Teacher_Menu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Teacher_Students.resx">
+      <DependentUpon>Teacher_Students.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -240,6 +234,14 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\8b1d116ec2355a551ed1f9923f908f78.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eyeslash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\eye.png" />
+    <None Include="Resources\eyeslash1.png" />
+    <None Include="Resources\eye1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

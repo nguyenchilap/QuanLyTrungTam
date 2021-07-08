@@ -70,10 +70,6 @@ namespace QuanlyTrungtam
 
         private void button2_Click_1(object sender, EventArgs e)
         {
-            this.Hide();
-            CourseManager_Exams temp = new CourseManager_Exams();
-            temp.ShowDialog();
-            this.Close();
         }
     }
 }

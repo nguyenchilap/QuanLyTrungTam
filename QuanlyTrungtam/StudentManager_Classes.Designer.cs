@@ -53,12 +53,16 @@ namespace QuanlyTrungtam
             this.Courses_Reload = new System.Windows.Forms.Button();
             this.Back_button = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            this.groupBox1.SuspendLayout();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.ViewDetail_student_button = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.Solanthilai = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.Sobuoivang = new System.Windows.Forms.Label();
+            this.Retest_button = new System.Windows.Forms.Button();
+            this.complete = new System.Windows.Forms.Label();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // Courses_View
@@ -239,7 +243,7 @@ namespace QuanlyTrungtam
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(28, 445);
+            this.label15.Location = new System.Drawing.Point(134, 394);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(109, 18);
             this.label15.TabIndex = 69;
@@ -261,9 +265,9 @@ namespace QuanlyTrungtam
             "10",
             "11",
             "12"});
-            this.FilterMonth.Location = new System.Drawing.Point(29, 466);
+            this.FilterMonth.Location = new System.Drawing.Point(129, 415);
             this.FilterMonth.Name = "FilterMonth";
-            this.FilterMonth.Size = new System.Drawing.Size(106, 24);
+            this.FilterMonth.Size = new System.Drawing.Size(114, 24);
             this.FilterMonth.TabIndex = 68;
             this.FilterMonth.SelectedIndexChanged += new System.EventHandler(this.FilterMonth_SelectedIndexChanged);
             // 
@@ -271,7 +275,7 @@ namespace QuanlyTrungtam
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(26, 376);
+            this.label9.Location = new System.Drawing.Point(334, 394);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(97, 18);
             this.label9.TabIndex = 67;
@@ -302,9 +306,9 @@ namespace QuanlyTrungtam
             "2028",
             "2029",
             "2030"});
-            this.YearFilter.Location = new System.Drawing.Point(29, 398);
+            this.YearFilter.Location = new System.Drawing.Point(316, 415);
             this.YearFilter.Name = "YearFilter";
-            this.YearFilter.Size = new System.Drawing.Size(106, 24);
+            this.YearFilter.Size = new System.Drawing.Size(124, 24);
             this.YearFilter.TabIndex = 66;
             this.YearFilter.SelectedIndexChanged += new System.EventHandler(this.YearFilter_SelectedIndexChanged);
             // 
@@ -333,7 +337,7 @@ namespace QuanlyTrungtam
             this.Back_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Back_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Back_button.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.Back_button.Location = new System.Drawing.Point(29, 521);
+            this.Back_button.Location = new System.Drawing.Point(29, 465);
             this.Back_button.Name = "Back_button";
             this.Back_button.Size = new System.Drawing.Size(126, 44);
             this.Back_button.TabIndex = 71;
@@ -351,52 +355,128 @@ namespace QuanlyTrungtam
             this.label10.TabIndex = 72;
             this.label10.Text = "KHÓA HỌC";
             // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Location = new System.Drawing.Point(967, 448);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(92, 22);
-            this.numericUpDown1.TabIndex = 73;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.textBox1.Location = new System.Drawing.Point(18, 52);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(84, 22);
-            this.textBox1.TabIndex = 74;
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(15, 31);
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label1.Location = new System.Drawing.Point(381, 16);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(87, 18);
+            this.label1.Size = new System.Drawing.Size(99, 18);
             this.label1.TabIndex = 75;
-            this.label1.Text = "Số lần thi lại";
+            this.label1.Text = "Số lần thi lại  :";
             // 
-            // groupBox1
+            // panel1
             // 
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(566, 421);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(310, 144);
-            this.groupBox1.TabIndex = 76;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Kết quả học phần";
+            this.panel1.BackColor = System.Drawing.Color.MidnightBlue;
+            this.panel1.Controls.Add(this.complete);
+            this.panel1.Controls.Add(this.Retest_button);
+            this.panel1.Controls.Add(this.Sobuoivang);
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.Solanthilai);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.ViewDetail_student_button);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Location = new System.Drawing.Point(566, 415);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(730, 94);
+            this.panel1.TabIndex = 76;
+            // 
+            // ViewDetail_student_button
+            // 
+            this.ViewDetail_student_button.BackColor = System.Drawing.Color.Khaki;
+            this.ViewDetail_student_button.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ViewDetail_student_button.FlatAppearance.BorderColor = System.Drawing.Color.DarkKhaki;
+            this.ViewDetail_student_button.FlatAppearance.BorderSize = 2;
+            this.ViewDetail_student_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ViewDetail_student_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ViewDetail_student_button.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.ViewDetail_student_button.Location = new System.Drawing.Point(591, 29);
+            this.ViewDetail_student_button.Name = "ViewDetail_student_button";
+            this.ViewDetail_student_button.Size = new System.Drawing.Size(122, 40);
+            this.ViewDetail_student_button.TabIndex = 77;
+            this.ViewDetail_student_button.Text = "<< View Detail";
+            this.ViewDetail_student_button.UseVisualStyleBackColor = false;
+            this.ViewDetail_student_button.Click += new System.EventHandler(this.ViewDetail_student_button_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label2.Location = new System.Drawing.Point(381, 64);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(102, 18);
+            this.label2.TabIndex = 78;
+            this.label2.Text = "Số buổi vắng :";
+            // 
+            // Solanthilai
+            // 
+            this.Solanthilai.AutoSize = true;
+            this.Solanthilai.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Solanthilai.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.Solanthilai.Location = new System.Drawing.Point(489, 16);
+            this.Solanthilai.Name = "Solanthilai";
+            this.Solanthilai.Size = new System.Drawing.Size(24, 18);
+            this.Solanthilai.TabIndex = 79;
+            this.Solanthilai.Text = "00";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label4.Location = new System.Drawing.Point(516, 16);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(24, 18);
+            this.label4.TabIndex = 80;
+            this.label4.Text = "/ 3";
+            // 
+            // Sobuoivang
+            // 
+            this.Sobuoivang.AutoSize = true;
+            this.Sobuoivang.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Sobuoivang.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.Sobuoivang.Location = new System.Drawing.Point(489, 64);
+            this.Sobuoivang.Name = "Sobuoivang";
+            this.Sobuoivang.Size = new System.Drawing.Size(24, 18);
+            this.Sobuoivang.TabIndex = 81;
+            this.Sobuoivang.Text = "00";
+            // 
+            // Retest_button
+            // 
+            this.Retest_button.BackColor = System.Drawing.Color.Khaki;
+            this.Retest_button.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Retest_button.FlatAppearance.BorderColor = System.Drawing.Color.Olive;
+            this.Retest_button.FlatAppearance.BorderSize = 2;
+            this.Retest_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Retest_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Retest_button.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.Retest_button.Location = new System.Drawing.Point(24, 29);
+            this.Retest_button.Name = "Retest_button";
+            this.Retest_button.Size = new System.Drawing.Size(112, 40);
+            this.Retest_button.TabIndex = 78;
+            this.Retest_button.Text = "Retest";
+            this.Retest_button.UseVisualStyleBackColor = false;
+            // 
+            // complete
+            // 
+            this.complete.AutoSize = true;
+            this.complete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.complete.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.complete.Location = new System.Drawing.Point(208, 35);
+            this.complete.Name = "complete";
+            this.complete.Size = new System.Drawing.Size(116, 25);
+            this.complete.TabIndex = 82;
+            this.complete.Text = "Completed";
             // 
             // StudentManager_Classes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
-            this.ClientSize = new System.Drawing.Size(1308, 577);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.numericUpDown1);
+            this.ClientSize = new System.Drawing.Size(1311, 521);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.Back_button);
             this.Controls.Add(this.Courses_Reload);
@@ -417,9 +497,8 @@ namespace QuanlyTrungtam
             this.Name = "StudentManager_Classes";
             this.Text = "Classes";
             this.Load += new System.EventHandler(this.Manager_Classes_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -450,9 +529,14 @@ namespace QuanlyTrungtam
         private System.Windows.Forms.Button Courses_Reload;
         private System.Windows.Forms.Button Back_button;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button ViewDetail_student_button;
+        private System.Windows.Forms.Button Retest_button;
+        private System.Windows.Forms.Label Sobuoivang;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label Solanthilai;
+        private System.Windows.Forms.Label complete;
     }
 }

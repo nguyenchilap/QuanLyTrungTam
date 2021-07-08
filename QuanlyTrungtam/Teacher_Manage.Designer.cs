@@ -45,12 +45,15 @@ namespace QuanlyTrungtam
             this.FilterMonth = new System.Windows.Forms.ComboBox();
             this.FilterCourse = new System.Windows.Forms.ComboBox();
             this.FilterYear = new System.Windows.Forms.ComboBox();
-            this.GrantButton = new System.Windows.Forms.Button();
             this.Back = new System.Windows.Forms.Button();
             this.Detail_button = new System.Windows.Forms.Button();
-            this.Reload = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.Swap_LopHoc = new System.Windows.Forms.Button();
+            this.Swap_LichThi = new System.Windows.Forms.Button();
+            this.GrantButton = new System.Windows.Forms.Button();
+            this.Reload = new System.Windows.Forms.Button();
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // EmployeeView
@@ -121,7 +124,8 @@ namespace QuanlyTrungtam
             this.ClassView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
-            this.columnHeader3});
+            this.columnHeader3,
+            this.columnHeader4});
             this.ClassView.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ClassView.FullRowSelect = true;
             this.ClassView.GridLines = true;
@@ -129,7 +133,7 @@ namespace QuanlyTrungtam
             this.ClassView.Location = new System.Drawing.Point(765, 70);
             this.ClassView.Margin = new System.Windows.Forms.Padding(4);
             this.ClassView.Name = "ClassView";
-            this.ClassView.Size = new System.Drawing.Size(402, 396);
+            this.ClassView.Size = new System.Drawing.Size(402, 351);
             this.ClassView.TabIndex = 96;
             this.ClassView.UseCompatibleStateImageBehavior = false;
             this.ClassView.View = System.Windows.Forms.View.Details;
@@ -241,24 +245,6 @@ namespace QuanlyTrungtam
             this.FilterYear.TabIndex = 102;
             this.FilterYear.SelectedIndexChanged += new System.EventHandler(this.FilterYear_SelectedIndexChanged);
             // 
-            // GrantButton
-            // 
-            this.GrantButton.BackColor = System.Drawing.Color.CadetBlue;
-            this.GrantButton.BackgroundImage = global::QuanlyTrungtam.Properties.Resources._1200px_Arrow_icon_svg;
-            this.GrantButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.GrantButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.GrantButton.FlatAppearance.BorderColor = System.Drawing.Color.CadetBlue;
-            this.GrantButton.FlatAppearance.BorderSize = 3;
-            this.GrantButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.GrantButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GrantButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.GrantButton.Location = new System.Drawing.Point(690, 207);
-            this.GrantButton.Name = "GrantButton";
-            this.GrantButton.Size = new System.Drawing.Size(54, 54);
-            this.GrantButton.TabIndex = 103;
-            this.GrantButton.UseVisualStyleBackColor = false;
-            this.GrantButton.Click += new System.EventHandler(this.GrantButton_Click_1);
-            // 
             // Back
             // 
             this.Back.BackColor = System.Drawing.Color.Brown;
@@ -293,22 +279,6 @@ namespace QuanlyTrungtam
             this.Detail_button.UseVisualStyleBackColor = false;
             this.Detail_button.Click += new System.EventHandler(this.Detail_button_Click);
             // 
-            // Reload
-            // 
-            this.Reload.BackColor = System.Drawing.Color.AliceBlue;
-            this.Reload.BackgroundImage = global::QuanlyTrungtam.Properties.Resources.redo_solid;
-            this.Reload.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Reload.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Reload.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Reload.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Reload.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Reload.Location = new System.Drawing.Point(240, 24);
-            this.Reload.Name = "Reload";
-            this.Reload.Size = new System.Drawing.Size(32, 31);
-            this.Reload.TabIndex = 98;
-            this.Reload.UseVisualStyleBackColor = false;
-            this.Reload.Click += new System.EventHandler(this.Reload_Click);
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -336,12 +306,87 @@ namespace QuanlyTrungtam
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // Swap_LopHoc
+            // 
+            this.Swap_LopHoc.BackColor = System.Drawing.Color.Turquoise;
+            this.Swap_LopHoc.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Swap_LopHoc.FlatAppearance.BorderColor = System.Drawing.Color.DarkSlateGray;
+            this.Swap_LopHoc.FlatAppearance.BorderSize = 3;
+            this.Swap_LopHoc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Swap_LopHoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Swap_LopHoc.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.Swap_LopHoc.Location = new System.Drawing.Point(765, 428);
+            this.Swap_LopHoc.Name = "Swap_LopHoc";
+            this.Swap_LopHoc.Size = new System.Drawing.Size(204, 38);
+            this.Swap_LopHoc.TabIndex = 108;
+            this.Swap_LopHoc.Text = "Lớp học";
+            this.Swap_LopHoc.UseVisualStyleBackColor = false;
+            this.Swap_LopHoc.Click += new System.EventHandler(this.Swap_LopHoc_Click);
+            // 
+            // Swap_LichThi
+            // 
+            this.Swap_LichThi.BackColor = System.Drawing.Color.MediumAquamarine;
+            this.Swap_LichThi.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Swap_LichThi.FlatAppearance.BorderColor = System.Drawing.Color.DarkGreen;
+            this.Swap_LichThi.FlatAppearance.BorderSize = 3;
+            this.Swap_LichThi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Swap_LichThi.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Swap_LichThi.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.Swap_LichThi.Location = new System.Drawing.Point(975, 428);
+            this.Swap_LichThi.Name = "Swap_LichThi";
+            this.Swap_LichThi.Size = new System.Drawing.Size(192, 38);
+            this.Swap_LichThi.TabIndex = 109;
+            this.Swap_LichThi.Text = "Lịch thi";
+            this.Swap_LichThi.UseVisualStyleBackColor = false;
+            this.Swap_LichThi.Click += new System.EventHandler(this.Swap_LichThi_Click);
+            // 
+            // GrantButton
+            // 
+            this.GrantButton.BackColor = System.Drawing.Color.CadetBlue;
+            this.GrantButton.BackgroundImage = global::QuanlyTrungtam.Properties.Resources._1200px_Arrow_icon_svg;
+            this.GrantButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.GrantButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.GrantButton.FlatAppearance.BorderColor = System.Drawing.Color.CadetBlue;
+            this.GrantButton.FlatAppearance.BorderSize = 3;
+            this.GrantButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.GrantButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GrantButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.GrantButton.Location = new System.Drawing.Point(690, 207);
+            this.GrantButton.Name = "GrantButton";
+            this.GrantButton.Size = new System.Drawing.Size(54, 54);
+            this.GrantButton.TabIndex = 103;
+            this.GrantButton.UseVisualStyleBackColor = false;
+            this.GrantButton.Click += new System.EventHandler(this.GrantButton_Click_1);
+            // 
+            // Reload
+            // 
+            this.Reload.BackColor = System.Drawing.Color.AliceBlue;
+            this.Reload.BackgroundImage = global::QuanlyTrungtam.Properties.Resources.redo_solid;
+            this.Reload.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Reload.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Reload.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Reload.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Reload.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Reload.Location = new System.Drawing.Point(240, 24);
+            this.Reload.Name = "Reload";
+            this.Reload.Size = new System.Drawing.Size(32, 31);
+            this.Reload.TabIndex = 98;
+            this.Reload.UseVisualStyleBackColor = false;
+            this.Reload.Click += new System.EventHandler(this.Reload_Click);
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Thời gian";
+            this.columnHeader4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // Teacher_Manage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.CadetBlue;
             this.ClientSize = new System.Drawing.Size(1185, 478);
+            this.Controls.Add(this.Swap_LichThi);
+            this.Controls.Add(this.Swap_LopHoc);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.Detail_button);
@@ -388,5 +433,8 @@ namespace QuanlyTrungtam
         private System.Windows.Forms.Button Detail_button;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button Swap_LopHoc;
+        private System.Windows.Forms.Button Swap_LichThi;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
     }
 }

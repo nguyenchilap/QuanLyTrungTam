@@ -257,7 +257,7 @@ namespace QuanlyTrungtam
                                                             + "join NhanVien C ON C.ID_NV = A.ID_GV join DS_Monhoc D ON D.ID_Monhoc = A.ID_Monhoc "
                                              + " where A.ID_Khoa = " + IDCur_Course.Text + " and D.Ten_Monhoc = N'" + List_SubGr.SelectedNode.Text + "' "
                                              + " and B.ID_Hocvien = " + Signin.ID;
-                        MessageBox.Show(qry);
+                        //MessageBox.Show(qry);
                         SqlCommand cmd = new SqlCommand(qry, conn);
                         SqlDataReader reader = cmd.ExecuteReader();
                         while (reader.Read())

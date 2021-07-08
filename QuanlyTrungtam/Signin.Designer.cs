@@ -32,14 +32,16 @@ namespace QuanlyTrungtam
             this.Username_text = new System.Windows.Forms.TextBox();
             this.Pass_Text = new System.Windows.Forms.MaskedTextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.Show_button = new System.Windows.Forms.Button();
+            this.Hide_button = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.Back_button = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.Type_text = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.Back_button = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,6 +63,8 @@ namespace QuanlyTrungtam
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.CadetBlue;
+            this.groupBox1.Controls.Add(this.Show_button);
+            this.groupBox1.Controls.Add(this.Hide_button);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.Back_button);
             this.groupBox1.Controls.Add(this.label5);
@@ -77,6 +81,76 @@ namespace QuanlyTrungtam
             this.groupBox1.Size = new System.Drawing.Size(327, 350);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
+            // 
+            // Show_button
+            // 
+            this.Show_button.BackColor = System.Drawing.Color.CadetBlue;
+            this.Show_button.BackgroundImage = global::QuanlyTrungtam.Properties.Resources.eyeslash1;
+            this.Show_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Show_button.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Show_button.FlatAppearance.BorderColor = System.Drawing.Color.DarkOliveGreen;
+            this.Show_button.FlatAppearance.BorderSize = 0;
+            this.Show_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Show_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Show_button.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Show_button.Location = new System.Drawing.Point(280, 133);
+            this.Show_button.Name = "Show_button";
+            this.Show_button.Size = new System.Drawing.Size(27, 26);
+            this.Show_button.TabIndex = 17;
+            this.Show_button.UseVisualStyleBackColor = false;
+            this.Show_button.Click += new System.EventHandler(this.Show_button_Click);
+            // 
+            // Hide_button
+            // 
+            this.Hide_button.BackColor = System.Drawing.Color.CadetBlue;
+            this.Hide_button.BackgroundImage = global::QuanlyTrungtam.Properties.Resources.eyeslash;
+            this.Hide_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Hide_button.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Hide_button.FlatAppearance.BorderColor = System.Drawing.Color.DarkOliveGreen;
+            this.Hide_button.FlatAppearance.BorderSize = 0;
+            this.Hide_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Hide_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Hide_button.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Hide_button.Location = new System.Drawing.Point(280, 133);
+            this.Hide_button.Name = "Hide_button";
+            this.Hide_button.Size = new System.Drawing.Size(27, 26);
+            this.Hide_button.TabIndex = 16;
+            this.Hide_button.UseVisualStyleBackColor = false;
+            this.Hide_button.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.PaleGreen;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.DarkOliveGreen;
+            this.button1.FlatAppearance.BorderSize = 4;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button1.Location = new System.Drawing.Point(208, 296);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(108, 44);
+            this.button1.TabIndex = 15;
+            this.button1.Text = "Submit >";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // Back_button
+            // 
+            this.Back_button.BackColor = System.Drawing.Color.Brown;
+            this.Back_button.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Back_button.FlatAppearance.BorderColor = System.Drawing.Color.Maroon;
+            this.Back_button.FlatAppearance.BorderSize = 3;
+            this.Back_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Back_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Back_button.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.Back_button.Location = new System.Drawing.Point(11, 296);
+            this.Back_button.Name = "Back_button";
+            this.Back_button.Size = new System.Drawing.Size(106, 44);
+            this.Back_button.TabIndex = 14;
+            this.Back_button.Text = "< Back";
+            this.Back_button.UseVisualStyleBackColor = false;
+            this.Back_button.Click += new System.EventHandler(this.Back_button_Click);
             // 
             // label5
             // 
@@ -148,40 +222,6 @@ namespace QuanlyTrungtam
             this.label1.TabIndex = 2;
             this.label1.Text = "SIGN IN";
             // 
-            // Back_button
-            // 
-            this.Back_button.BackColor = System.Drawing.Color.Brown;
-            this.Back_button.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Back_button.FlatAppearance.BorderColor = System.Drawing.Color.Maroon;
-            this.Back_button.FlatAppearance.BorderSize = 3;
-            this.Back_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Back_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Back_button.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.Back_button.Location = new System.Drawing.Point(11, 296);
-            this.Back_button.Name = "Back_button";
-            this.Back_button.Size = new System.Drawing.Size(106, 44);
-            this.Back_button.TabIndex = 14;
-            this.Back_button.Text = "< Back";
-            this.Back_button.UseVisualStyleBackColor = false;
-            this.Back_button.Click += new System.EventHandler(this.Back_button_Click);
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.PaleGreen;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.DarkOliveGreen;
-            this.button1.FlatAppearance.BorderSize = 4;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button1.Location = new System.Drawing.Point(208, 296);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(108, 44);
-            this.button1.TabIndex = 15;
-            this.button1.Text = "Submit >";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
-            // 
             // Signin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -211,6 +251,8 @@ namespace QuanlyTrungtam
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button Back_button;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button Hide_button;
+        private System.Windows.Forms.Button Show_button;
     }
 }
 

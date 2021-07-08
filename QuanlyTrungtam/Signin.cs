@@ -29,6 +29,9 @@ namespace QuanlyTrungtam
 
         private void Signin_Load(object sender, EventArgs e)
         {
+            Pass_Text.UseSystemPasswordChar = true;
+            Show_button.Show();
+            Hide_button.Hide();
             ID = 0; Type_Person = 0;
             Program.ChangePass = false;
             IsManager = false;
@@ -178,6 +181,20 @@ namespace QuanlyTrungtam
                 }
                 conn.Close();
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Show_button.Show();
+            Hide_button.Hide();
+            Pass_Text.UseSystemPasswordChar = true;
+        }
+
+        private void Show_button_Click(object sender, EventArgs e)
+        {
+            Hide_button.Show();
+            Show_button.Hide();
+            Pass_Text.UseSystemPasswordChar = false;
         }
 
         private void button1_Click(object sender, EventArgs e)
